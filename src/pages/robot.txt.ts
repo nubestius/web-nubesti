@@ -6,13 +6,20 @@ const { enable, disallow } = config.seo.robots_txt;
 
 const getRobotsTxt = (
   sitemapURL: URL,
-) => `# Robots.txt file for controlling web crawler access
-# Security-enhanced configuration for Nubesti
+) => `# Robots.txt file for Nubesti - AI-Powered Cybersecurity Platform
+# SEO-optimized configuration for better search engine indexing
 
 User-agent: *
 
-# Allowed pages
+# Allowed pages - Prioritize important content
 Allow: /
+Allow: /en/
+Allow: /es/ 
+Allow: /fr/
+Allow: /pricing/
+Allow: /contact/
+Allow: /blog/
+Allow: /integration/
 
 # Security - Disallow sensitive paths
 Disallow: /admin/
@@ -26,15 +33,48 @@ Disallow: /temp/
 Disallow: /.git/
 Disallow: /.svn/
 Disallow: /node_modules/
-Disallow: /.well-known/
+Disallow: /_astro/
+
+# SEO - Disallow duplicate content and low-value pages
+Disallow: /search?
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?fbclid=*
+Disallow: /404/
+Disallow: /draft/
 
 # Disallowed pages from configuration
 ${disallow.map((item: string) => `Disallow: ${item}`).join("\n")}
 
-# Crawl delay for better server performance
+# Special crawlers
+User-agent: Googlebot
+Allow: /
 Crawl-delay: 1
 
-# Sitemap location
+User-agent: Bingbot  
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Block aggressive crawlers
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Crawl-delay: 10
+
+# Crawl delay for better server performance and SEO
+Crawl-delay: 1
+
+# Sitemap location for search engines
 Sitemap: ${sitemapURL.href}
 `;
 

@@ -4,6 +4,7 @@ import "@/styles/main.css";
 import Header from "@/components/global/header/Header.astro";
 import Footer from "@/components/global/Footer.astro";
 import Head from "@/components/global/Head.astro";
+import GoogleTagManagerNoScript from "@/layouts/components/analytics/GoogleTagManagerNoScript.astro";
 import SecureForm from "@/components/security/SecureForm.astro";
 import removeEmptyKeys from "@/lib/utils/removeEmptyKeys";
 import type { JSONLDProps } from "@/lib/utils/JsonLdGenerator";
@@ -48,6 +49,9 @@ className =
 <html lang="en">
   <Head {...props} structuredData={structuredData} />
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <GoogleTagManagerNoScript />
+    
     <Header {...props} />
     <main
       class:list={[

@@ -1,0 +1,59 @@
+---
+import parseTomlToJson from "@/lib/utils/parseTomlToJson.ts";
+
+const config = parseTomlToJson("./src/config/config.toml");
+const searchConsoleVerification = config.analytics?.google_site_verification;
+const enableSearchConsole = config.analytics?.enable_search_console;
+
+// Only render optimizations if Search Console is enabled
+const shouldRenderOptimizations = enableSearchConsole;
+// Only render verification meta tag if verification code is provided (for backup verification method)
+const shouldRenderVerification = enableSearchConsole && searchConsoleVerification && searchConsoleVerification.trim() !== "";
+---
+
+{shouldRenderOptimizations && (
+  <Fragment>
+    {/* Google Search Console Verification (backup method - DNS is primary) */}
+    {shouldRenderVerification && (
+      <meta name="google-site-verification" content={searchConsoleVerification} />
+    )}
+    
+    <!-- Enhanced Search Console optimizations for cybersecurity content -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    
+    <!-- Enhanced crawling directives for cybersecurity content -->
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="slurp" content="index, follow" />
+    <meta name="duckduckbot" content="index, follow" />
+    
+    <!-- Content classification for Search Console -->
+    <meta name="subject" content="Cybersecurity, AI, Penetration Testing, Red Team Operations" />
+    <meta name="classification" content="Business, Technology, Security" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="distribution" content="Global" />
+    <meta name="rating" content="General" />
+    <meta name="audience" content="IT Professionals, Security Engineers, CTOs, CISOs" />
+    
+    <!-- Enhanced geographic and language targeting -->
+    <meta name="geo.region" content="Global" />
+    <meta name="geo.placename" content="Worldwide" />
+    <meta name="language" content="EN, ES, FR" />
+    <meta name="content-language" content="en, es, fr" />
+    
+    <!-- Search Console structured data hints -->
+    <meta name="article:section" content="Cybersecurity" />
+    <meta name="article:tag" content="AI, Red Team, Penetration Testing, MITRE ATT&CK, OWASP, Vulnerability Assessment, Security Automation" />
+    
+    <!-- Enhanced search result appearance -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    
+    <!-- Search Console indexing preferences -->
+    <meta name="revisit-after" content="1 days" />
+    <meta name="expires" content="never" />
+    <meta name="pragma" content="no-cache" />
+  </Fragment>
+)}

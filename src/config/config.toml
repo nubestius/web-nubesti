@@ -27,25 +27,65 @@
 [seo]
   author = "Nubesti"
   keywords = [
+    # Primary keywords
     "autonomous red team",
-    "ai penetration testing",
+    "ai penetration testing", 
     "cybersecurity ai agent",
     "automated vulnerability assessment",
     "red team automation",
     "ai security testing",
-  ] # SEO keywords
-  robots = "index, follow" # Instructs search engines on how to crawl and index the pages.
+    # Secondary keywords
+    "cybersecurity platform",
+    "mitre att&ck framework",
+    "owasp compliance testing",
+    "security vulnerability scanner",
+    "enterprise cybersecurity",
+    "threat simulation platform",
+    "continuous security testing",
+    "security automation tools",
+    "penetration testing as a service",
+    "cyber threat intelligence",
+    # Long-tail keywords
+    "automated penetration testing platform",
+    "ai-powered cybersecurity solutions", 
+    "continuous red team operations",
+    "enterprise security assessment",
+    "cloud security testing platform",
+    "devsecops security automation",
+    "security compliance automation",
+    "cyber resilience testing"
+  ] # Enhanced SEO keywords
+  robots = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" # Enhanced robots directive
 
   [seo.robots_txt]
     enable = true # Enables or disables robots.txt file generation on site build
     disallow = [
       "/cdn-cgi/",
-    ] # Disallow specific paths (e.g., "/_astro/", "/cdn-cgi/")
+      "/_astro/",
+      "/api/",
+      "/admin/",
+    ] # Enhanced disallow paths for better SEO
 
   [seo.sitemap]
     enable = true # Enables or disables sitemap generation on site build
     exclude = [
-    ] # exclude all pages that include these folder names (e.g., "blog", "services")
+      "404",
+      "draft",
+      "temp"
+    ] # exclude pages that shouldn't be indexed
+
+  # Schema.org structured data
+  [seo.schema]
+    enable = true
+    organization_name = "Nubesti"
+    organization_url = "https://nubesti.com"
+    organization_logo = "https://nubesti.com/images/logo-nubesti.svg"
+    organization_description = "Leading AI-powered cybersecurity platform for autonomous penetration testing"
+    same_as = [
+      "https://twitter.com/nubesti",
+      "https://linkedin.com/company/nubesti",
+      "https://github.com/nubesti"
+    ]
 
 
 # Different theme settings
@@ -115,6 +155,16 @@
   og_type      = "website" # Type of content for OpenGraph protocol
   twitter      = "" # Twitter handle for Twitter Card meta tags
   twitter_card = "summary_large_image" # Type of Twitter Card to use in social sharing
+
+# Google Analytics & Search Console Configuration
+# -----------------------------------------------------------------------------------------------------------------------------------
+[analytics]
+  google_analytics_id = "G-493259096" # Google Analytics 4 Measurement ID
+  google_tag_manager_id = "GTM-WSTG96J5" # Google Tag Manager ID
+  google_site_verification = "" # Verification by DNS - backup HTML verification code (optional since you verified via DNS)
+  enable_analytics = true # Enable/disable analytics tracking
+  enable_tag_manager = true # Enable/disable Google Tag Manager
+  enable_search_console = true # Enable/disable Search Console optimizations
 
 # [head] (Add custom scripts, stylesheets, and meta tags to be rendered in the <head> section of the page)
 # -----------------------------------------------------------------------------------------------------------------------------------

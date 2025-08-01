@@ -3,6 +3,11 @@ import SEO from "@/components/seo/Seo.astro";
 import Font from "@/components/widgets/Font.astro";
 import OpenGraph from "@/components/seo/OpenGraph.astro";
 import Favicons from "@/components/seo/Favicons.astro";
+import AdvancedSchema from "@/layouts/components/seo/AdvancedSchema.astro";
+import GoogleAnalytics from "@/layouts/components/analytics/GoogleAnalytics.astro";
+import GoogleSearchConsole from "@/layouts/components/analytics/GoogleSearchConsole.astro";
+import GoogleTagManager from "@/layouts/components/analytics/GoogleTagManager.astro";
+import TrackingScript from "@/layouts/components/analytics/TrackingScript.astro";
 import parseTomlToJson from "@/lib/utils/parseTomlToJson.ts";
 import theme from "@/config/theme.json";
 import JsonLD from "../widgets/JsonLD.astro";
@@ -30,6 +35,23 @@ const themeColor = theme.colors.default.theme_color.primary;
   <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   
+  <!------------
+    SEO Enhanced
+-------------->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="https://umami.is" />
+  
+  <!-- Alternate language links for SEO -->
+  <link rel="alternate" hreflang="en" href={`${config.site.base_url}/en/`} />
+  <link rel="alternate" hreflang="es" href={`${config.site.base_url}/es/`} />
+  <link rel="alternate" hreflang="fr" href={`${config.site.base_url}/fr/`} />
+  <link rel="alternate" hreflang="x-default" href={config.site.base_url} />
+  
+  <!-- Enhanced sitemap links -->
+  <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+  <link rel="sitemap" type="application/xml" href="/sitemap-enhanced.xml" />
+  
   <SEO {...Astro.props} />
   <meta
     name="theme-color"
@@ -42,6 +64,15 @@ const themeColor = theme.colors.default.theme_color.primary;
     content="#000"
   />
   <meta name="generator" content={Astro.generator} />
+  
+  <!-- Enhanced meta tags for cybersecurity focus -->
+  <meta name="category" content="cybersecurity" />
+  <meta name="classification" content="Business" />
+  <meta name="coverage" content="Worldwide" />
+  <meta name="distribution" content="Global" />
+  <meta name="rating" content="General" />
+  <meta name="target" content="enterprise" />
+  
   {
     config.head?.content && (
       // Injecting custom scripts such as Google Analytics, Google Tag Manager, etc. tracking code,
@@ -51,14 +82,34 @@ const themeColor = theme.colors.default.theme_color.primary;
   }
   <OpenGraph {...Astro.props} />
   <Favicons />
+  
+  <!-- Google Search Console Verification -->
+  <GoogleSearchConsole />
+  
   <JsonLD
     content={{
       ...Astro.props,
     }}
   />
+  
+  <!-- Advanced Schema.org structured data -->
+  <AdvancedSchema {...Astro.props} />
+
+  <!-- Google Tag Manager -->
+  <GoogleTagManager />
+
+  <!-- Google Analytics -->
+  <GoogleAnalytics />
+
+  <!-- Enhanced Event Tracking -->
+  <TrackingScript />
 
   <!------------------
     Google Fonts
 -------------------->
   <Font />
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/images/logo-nubesti.svg" as="image" type="image/svg+xml" />
+  <link rel="modulepreload" href="/_astro/main.js" />
 </head>

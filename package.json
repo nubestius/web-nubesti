@@ -8,14 +8,17 @@
   "packageManager": "yarn@1.22.19",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && yarn remove-draft-from-sitemap",
-    "preview": "astro build && yarn remove-draft-from-sitemap && astro preview",
-    "astro-check": "astro check",
-    "generate-favicons": "node ./scripts/generate-favicons.mjs",
-    "remove-multilingual": "node ./scripts/remove-multilingual.mjs",
-    "remove-draft-from-sitemap": "node ./scripts/remove-draft-from-sitemap.mjs",
-    "format": "prettier -w ./src",
-    "test": "cross-env TS_NODE_PROJECT=\"./tsconfig.jest.json\" jest --watch"
+    "start": "astro dev",
+    "build": "astro build && npm run remove-draft-from-sitemap",
+    "preview": "astro preview",
+    "check": "astro check",
+    "build:cf": "wrangler pages dev dist",
+    "astro": "astro",
+    "remove-draft-from-sitemap": "node scripts/remove-draft-from-sitemap.mjs",
+    "remove-multilingual": "node scripts/remove-multilingual.mjs",
+    "optimize-media": "node scripts/optimize-media.mjs",
+    "generate-favicons": "node scripts/generate-favicons.mjs",
+    "test": "jest"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
