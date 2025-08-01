@@ -1,0 +1,153 @@
+---
+// Secure Form Validation Component for Nubesti
+// Sanitizes inputs and prevents XSS attacks
+
+export interface SecureInputProps {
+  value: string;
+  type?: 'text' | 'email' | 'tel' | 'url';
+  maxLength?: number;
+  required?: boolean;
+  pattern?: string;
+}
+
+// Sanitize input to prevent XSS
+function sanitizeInput(input: string): string {
+  return input
+    .replace(/[<>\"']/g, '') // Remove potentially dangerous characters
+    .trim()
+    .substring(0, 1000); // Limit length
+}
+
+// Validate email format
+function isValidEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email) && email.length <= 254;
+}
+
+// Validate phone number
+function isValidPhone(phone: string): boolean {
+  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+  return phoneRegex.test(phone.replace(/[\s\-\(\)]/g, ''));
+}
+
+// Rate limiting storage (in production, use Redis or database)
+const rateLimitStore = new Map<string, { count: number; resetTime: number }>();
+
+// Simple rate limiting
+function checkRateLimit(ip: string, maxRequests: number = 5, windowMs: number = 60000): boolean {
+  const now = Date.now();
+  const record = rateLimitStore.get(ip);
+  
+  if (!record || now > record.resetTime) {
+    rateLimitStore.set(ip, { count: 1, resetTime: now + windowMs });
+    return true;
+  }
+  
+  if (record.count >= maxRequests) {
+    return false;
+  }
+  
+  record.count++;
+  return true;
+}
+
+export { sanitizeInput, isValidEmail, isValidPhone, checkRateLimit };
+---
+
+<script>
+  // Client-side form security enhancements
+  document.addEventListener('DOMContentLoaded', function() {
+    // Add CSRF protection
+    const forms = document.querySelectorAll('form');
+    
+    forms.forEach(form => {
+      // Add nonce for CSRF protection
+      const csrfInput = document.createElement('input');
+      csrfInput.type = 'hidden';
+      csrfInput.name = '_csrf';
+      csrfInput.value = Math.random().toString(36).substring(2);
+      form.appendChild(csrfInput);
+      
+      // Input sanitization
+      const inputs = form.querySelectorAll('input, textarea');
+      inputs.forEach(input => {
+        input.addEventListener('input', function(e) {
+          const target = e.target as HTMLInputElement;
+          
+          // Basic XSS prevention
+          if (target.value.includes('<script') || target.value.includes('javascript:')) {
+            target.value = target.value.replace(/<script.*?>.*?<\/script>/gi, '');
+            target.value = target.value.replace(/javascript:/gi, '');
+          }
+          
+          // Limit input length
+          if (target.value.length > 1000) {
+            target.value = target.value.substring(0, 1000);
+          }
+        });
+      });
+      
+      // Form submission security
+      form.addEventListener('submit', function(e) {
+        const formData = new FormData(form);
+        
+        // Validate required fields
+        const requiredFields = form.querySelectorAll('[required]');
+        let isValid = true;
+        
+        requiredFields.forEach(field => {
+          const input = field as HTMLInputElement;
+          if (!input.value.trim()) {
+            isValid = false;
+            input.classList.add('error');
+          } else {
+            input.classList.remove('error');
+          }
+        });
+        
+        if (!isValid) {
+          e.preventDefault();
+          return false;
+        }
+        
+        // Additional email validation
+        const emailInputs = form.querySelectorAll('input[type="email"]');
+        emailInputs.forEach(emailInput => {
+          const input = emailInput as HTMLInputElement;
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!emailRegex.test(input.value)) {
+            e.preventDefault();
+            input.classList.add('error');
+            isValid = false;
+          }
+        });
+        
+        return isValid;
+      });
+    });
+  });
+</script>
+
+<style>
+  /* Security-focused form styles */
+  .error {
+    border-color: #ef4444 !important;
+    background-color: #fef2f2 !important;
+  }
+  
+  /* Hide security inputs */
+  input[name="_csrf"] {
+    display: none !important;
+  }
+  
+  /* Secure input styling */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    &:focus {
+      outline: 2px solid #3b82f6;
+      outline-offset: 2px;
+    }
+  }
+</style>

@@ -109,6 +109,16 @@ export default defineConfig({
     },
     extendDefaultPlugins: true,
   },
+  server: {
+    headers: {
+      "X-Content-Type-Options": "nosniff",
+      "X-Frame-Options": "DENY",
+      "X-XSS-Protection": "1; mode=block",
+    },
+  },
+  security: {
+    checkOrigin: true,
+  },
   vite: {
     plugins: [reloadOnTomlChange(), tailwindcss()],
   },

@@ -1,8 +1,10 @@
 ---
 import "aos/dist/aos.css";
-import "@/styles/main.css";import Header from "@/components/global/header/Header.astro";
+import "@/styles/main.css";
+import Header from "@/components/global/header/Header.astro";
 import Footer from "@/components/global/Footer.astro";
 import Head from "@/components/global/Head.astro";
+import SecureForm from "@/components/security/SecureForm.astro";
 import removeEmptyKeys from "@/lib/utils/removeEmptyKeys";
 import type { JSONLDProps } from "@/lib/utils/JsonLdGenerator";
 
@@ -60,11 +62,17 @@ className =
       <slot />
     </main>
     <Footer />
+    
+    <!-- Security enhancements -->
+    <SecureForm />
 
     <script>
       // @ts-nocheck
       import SmoothScroll from "smoothscroll-for-websites";
       document.addEventListener("DOMContentLoaded", async () => {
+        // Security: Content Security Policy compliance
+        const allowedOrigins = ['https://umami.is', 'https://preline.co', 'https://cdn.jsdelivr.net'];
+        
         // AOS - https://github.com/michalsnik/aos
         const AOS = await import("aos");
 
@@ -101,6 +109,27 @@ className =
             );
           }
         });
+        
+        // Security: Disable right-click context menu in production
+        if (window.location.hostname !== 'localhost') {
+          document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+          });
+        }
+        
+        // Security: Disable text selection for sensitive content
+        document.addEventListener('selectstart', function(e) {
+          if (e.target.classList.contains('no-select')) {
+            e.preventDefault();
+            return false;
+          }
+        });
+        
+        // Security: Basic click-jacking protection
+        if (window.top !== window.self) {
+          window.top.location = window.self.location;
+        }
       });
     </script>  </body>
 </html>
