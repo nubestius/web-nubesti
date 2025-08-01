@@ -165,6 +165,8 @@
   enable_analytics = true # Enable/disable analytics tracking
   enable_tag_manager = true # Enable/disable Google Tag Manager
   enable_search_console = true # Enable/disable Search Console optimizations
+  enable_web_vitals = true # Enable/disable Core Web Vitals monitoring
+  enable_seo_analysis = true # Enable/disable real-time SEO analysis
 
 # [head] (Add custom scripts, stylesheets, and meta tags to be rendered in the <head> section of the page)
 # -----------------------------------------------------------------------------------------------------------------------------------

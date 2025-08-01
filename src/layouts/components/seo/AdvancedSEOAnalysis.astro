@@ -1,0 +1,326 @@
+---
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+
+const config = parseTomlToJson("./src/config/config.toml");
+const enableSEOAnalysis = config.analytics?.enable_seo_analysis !== false;
+---
+
+{enableSEOAnalysis && (
+  <Fragment>
+    <!-- Real-time SEO Analysis Tool -->
+    <script is:inline>
+      // SEO Analysis Class
+      class SEOAnalyzer {
+        constructor() {
+          this.metrics = {
+            performance: {},
+            seo: {},
+            accessibility: {},
+            bestPractices: {}
+          };
+          this.init();
+        }
+
+        init() {
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.analyze());
+          } else {
+            this.analyze();
+          }
+        }
+
+        analyze() {
+          this.analyzeMetaTags();
+          this.analyzeHeadings();
+          this.analyzeImages();
+          this.analyzeLinks();
+          this.analyzePerformance();
+          this.analyzeStructuredData();
+          this.generateReport();
+        }
+
+        analyzeMetaTags() {
+          const title = document.querySelector('title');
+          const metaDescription = document.querySelector('meta[name="description"]');
+          const metaKeywords = document.querySelector('meta[name="keywords"]');
+          const canonical = document.querySelector('link[rel="canonical"]');
+          const ogImage = document.querySelector('meta[property="og:image"]');
+
+          this.metrics.seo.metaTags = {
+            title: {
+              exists: !!title,
+              length: title ? title.textContent.length : 0,
+              optimal: title ? title.textContent.length >= 30 && title.textContent.length <= 60 : false
+            },
+            description: {
+              exists: !!metaDescription,
+              length: metaDescription ? metaDescription.getAttribute('content').length : 0,
+              optimal: metaDescription ? 
+                metaDescription.getAttribute('content').length >= 120 && 
+                metaDescription.getAttribute('content').length <= 160 : false
+            },
+            keywords: {
+              exists: !!metaKeywords,
+              count: metaKeywords ? metaKeywords.getAttribute('content').split(',').length : 0
+            },
+            canonical: !!canonical,
+            ogImage: !!ogImage
+          };
+        }
+
+        analyzeHeadings() {
+          const h1s = document.querySelectorAll('h1');
+          const h2s = document.querySelectorAll('h2');
+          const h3s = document.querySelectorAll('h3');
+          const h4s = document.querySelectorAll('h4');
+          const h5s = document.querySelectorAll('h5');
+          const h6s = document.querySelectorAll('h6');
+
+          this.metrics.seo.headings = {
+            h1: {
+              count: h1s.length,
+              optimal: h1s.length === 1,
+              content: Array.from(h1s).map(h => h.textContent.trim())
+            },
+            h2: { count: h2s.length },
+            h3: { count: h3s.length },
+            h4: { count: h4s.length },
+            h5: { count: h5s.length },
+            h6: { count: h6s.length },
+            totalCount: h1s.length + h2s.length + h3s.length + h4s.length + h5s.length + h6s.length
+          };
+        }
+
+        analyzeImages() {
+          const images = document.querySelectorAll('img');
+          let imagesWithoutAlt = 0;
+          let imagesWithEmptyAlt = 0;
+          let imagesWithOptimalAlt = 0;
+
+          images.forEach(img => {
+            const alt = img.getAttribute('alt');
+            if (!alt) {
+              imagesWithoutAlt++;
+            } else if (alt.trim() === '') {
+              imagesWithEmptyAlt++;
+            } else if (alt.length >= 5 && alt.length <= 125) {
+              imagesWithOptimalAlt++;
+            }
+          });
+
+          this.metrics.seo.images = {
+            total: images.length,
+            withoutAlt: imagesWithoutAlt,
+            withEmptyAlt: imagesWithEmptyAlt,
+            withOptimalAlt: imagesWithOptimalAlt,
+            altOptimizationScore: images.length > 0 ? 
+              (imagesWithOptimalAlt / images.length) * 100 : 100
+          };
+        }
+
+        analyzeLinks() {
+          const internalLinks = document.querySelectorAll('a[href^="/"], a[href^="' + window.location.origin + '"]');
+          const externalLinks = document.querySelectorAll('a[href^="http"]:not([href^="' + window.location.origin + '"])');
+          const noFollowLinks = document.querySelectorAll('a[rel*="nofollow"]');
+
+          this.metrics.seo.links = {
+            internal: internalLinks.length,
+            external: externalLinks.length,
+            noFollow: noFollowLinks.length,
+            total: document.querySelectorAll('a[href]').length
+          };
+        }
+
+        analyzePerformance() {
+          if ('performance' in window) {
+            const navigation = performance.getEntriesByType('navigation')[0];
+            const paintEntries = performance.getEntriesByType('paint');
+
+            this.metrics.performance = {
+              domContentLoaded: navigation.domContentLoadedEventEnd - navigation.domContentLoadedEventStart,
+              loadComplete: navigation.loadEventEnd - navigation.loadEventStart,
+              firstPaint: paintEntries.find(entry => entry.name === 'first-paint')?.startTime || 0,
+              firstContentfulPaint: paintEntries.find(entry => entry.name === 'first-contentful-paint')?.startTime || 0,
+              transferSize: navigation.transferSize,
+              encodedBodySize: navigation.encodedBodySize,
+              decodedBodySize: navigation.decodedBodySize
+            };
+          }
+        }
+
+        analyzeStructuredData() {
+          const jsonLdScripts = document.querySelectorAll('script[type="application/ld+json"]');
+          const schemas = [];
+
+          jsonLdScripts.forEach(script => {
+            try {
+              const data = JSON.parse(script.textContent);
+              schemas.push(data['@type'] || 'Unknown');
+            } catch (e) {
+              console.warn('Invalid JSON-LD found:', e);
+            }
+          });
+
+          this.metrics.seo.structuredData = {
+            count: jsonLdScripts.length,
+            types: schemas,
+            hasOrganization: schemas.includes('Organization'),
+            hasWebsite: schemas.includes('WebSite'),
+            hasWebPage: schemas.includes('WebPage')
+          };
+        }
+
+        calculateSEOScore() {
+          let score = 0;
+          let maxScore = 0;
+
+          // Meta tags scoring (25 points)
+          maxScore += 25;
+          if (this.metrics.seo.metaTags.title.optimal) score += 10;
+          if (this.metrics.seo.metaTags.description.optimal) score += 10;
+          if (this.metrics.seo.metaTags.canonical) score += 3;
+          if (this.metrics.seo.metaTags.ogImage) score += 2;
+
+          // Headings scoring (20 points)
+          maxScore += 20;
+          if (this.metrics.seo.headings.h1.optimal) score += 15;
+          if (this.metrics.seo.headings.totalCount >= 3) score += 5;
+
+          // Images scoring (15 points)
+          maxScore += 15;
+          score += (this.metrics.seo.images.altOptimizationScore / 100) * 15;
+
+          // Structured data scoring (15 points)
+          maxScore += 15;
+          if (this.metrics.seo.structuredData.hasOrganization) score += 5;
+          if (this.metrics.seo.structuredData.hasWebsite) score += 5;
+          if (this.metrics.seo.structuredData.count >= 2) score += 5;
+
+          // Performance scoring (25 points)
+          maxScore += 25;
+          const fcp = this.metrics.performance.firstContentfulPaint;
+          if (fcp < 1800) score += 10;
+          else if (fcp < 3000) score += 5;
+
+          const domLoad = this.metrics.performance.domContentLoaded;
+          if (domLoad < 1000) score += 10;
+          else if (domLoad < 2000) score += 5;
+
+          if (this.metrics.performance.transferSize < 1000000) score += 5; // Less than 1MB
+
+          return Math.round((score / maxScore) * 100);
+        }
+
+        generateReport() {
+          const seoScore = this.calculateSEOScore();
+          
+          // Store metrics for potential display
+          window.seoMetrics = {
+            ...this.metrics,
+            overallScore: seoScore,
+            timestamp: new Date().toISOString()
+          };
+
+          // Send to analytics if available
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'seo_analysis', {
+              event_category: 'SEO Performance',
+              seo_score: seoScore,
+              page_url: window.location.pathname,
+              title_length: this.metrics.seo.metaTags.title.length,
+              description_length: this.metrics.seo.metaTags.description.length,
+              h1_count: this.metrics.seo.headings.h1.count,
+              images_without_alt: this.metrics.seo.images.withoutAlt,
+              structured_data_count: this.metrics.seo.structuredData.count
+            });
+          }
+
+          // Console report for developers
+          if (seoScore < 80) {
+            console.group('🔍 SEO Analysis Report');
+            console.log('Overall SEO Score:', seoScore + '/100');
+            
+            if (!this.metrics.seo.metaTags.title.optimal) {
+              console.warn('Title tag should be 30-60 characters. Current:', this.metrics.seo.metaTags.title.length);
+            }
+            
+            if (!this.metrics.seo.metaTags.description.optimal) {
+              console.warn('Meta description should be 120-160 characters. Current:', this.metrics.seo.metaTags.description.length);
+            }
+            
+            if (!this.metrics.seo.headings.h1.optimal) {
+              console.warn('Page should have exactly one H1 tag. Current count:', this.metrics.seo.headings.h1.count);
+            }
+            
+            if (this.metrics.seo.images.withoutAlt > 0) {
+              console.warn('Images without alt text:', this.metrics.seo.images.withoutAlt);
+            }
+            
+            console.groupEnd();
+          }
+        }
+      }
+
+      // Initialize SEO Analysis
+      new SEOAnalyzer();
+
+      // Expose function for manual analysis
+      window.runSEOAnalysis = () => new SEOAnalyzer();
+    </script>
+
+    <!-- Technical SEO Monitoring -->
+    <script is:inline>
+      // Monitor for 404 errors and broken links
+      document.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A' || e.target.closest('a')) {
+          const link = e.target.tagName === 'A' ? e.target : e.target.closest('a');
+          const href = link.getAttribute('href');
+          
+          if (href && href.startsWith('http') && !href.includes(window.location.hostname)) {
+            // Track external link clicks
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'click', {
+                event_category: 'External Link',
+                event_label: href,
+                transport_type: 'beacon'
+              });
+            }
+          }
+        }
+      });
+
+      // Monitor for search queries (if search functionality exists)
+      const searchInputs = document.querySelectorAll('input[type="search"], input[name*="search"], input[placeholder*="search"]');
+      searchInputs.forEach(input => {
+        input.addEventListener('submit', function(e) {
+          const query = this.value.trim();
+          if (query && typeof gtag !== 'undefined') {
+            gtag('event', 'search', {
+              search_term: query,
+              event_category: 'Site Search'
+            });
+          }
+        });
+      });
+
+      // Monitor scroll depth for engagement metrics
+      let maxScroll = 0;
+      window.addEventListener('scroll', function() {
+        const scrollPercent = Math.round(
+          (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100
+        );
+        
+        if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+          maxScroll = scrollPercent;
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'scroll', {
+              event_category: 'Engagement',
+              event_label: scrollPercent + '%',
+              value: scrollPercent
+            });
+          }
+        }
+      });
+    </script>
+  </Fragment>
+)}

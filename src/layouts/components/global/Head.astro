@@ -4,6 +4,9 @@ import Font from "@/components/widgets/Font.astro";
 import OpenGraph from "@/components/seo/OpenGraph.astro";
 import Favicons from "@/components/seo/Favicons.astro";
 import AdvancedSchema from "@/layouts/components/seo/AdvancedSchema.astro";
+import CybersecuritySchema from "@/layouts/components/seo/CybersecuritySchema.astro";
+import CoreWebVitals from "@/layouts/components/seo/CoreWebVitals.astro";
+import AdvancedSEOAnalysis from "@/layouts/components/seo/AdvancedSEOAnalysis.astro";
 import GoogleAnalytics from "@/layouts/components/analytics/GoogleAnalytics.astro";
 import GoogleSearchConsole from "@/layouts/components/analytics/GoogleSearchConsole.astro";
 import GoogleTagManager from "@/layouts/components/analytics/GoogleTagManager.astro";
@@ -94,6 +97,21 @@ const themeColor = theme.colors.default.theme_color.primary;
   
   <!-- Advanced Schema.org structured data -->
   <AdvancedSchema {...Astro.props} />
+  
+  <!-- Cybersecurity-specific Schema.org -->
+  <CybersecuritySchema 
+    pageType={Astro.url.pathname === '/' ? 'homepage' : 
+              Astro.url.pathname.includes('/pricing') ? 'pricing' :
+              Astro.url.pathname.includes('/contact') ? 'contact' :
+              Astro.url.pathname.includes('/blog') ? 'blog' : 'service'} 
+    {...Astro.props} 
+  />
+
+  <!-- Core Web Vitals Monitoring -->
+  <CoreWebVitals />
+
+  <!-- Advanced SEO Analysis -->
+  <AdvancedSEOAnalysis />
 
   <!-- Google Tag Manager -->
   <GoogleTagManager />
