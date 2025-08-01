@@ -58,9 +58,11 @@ let {
           width={getNumber(logo_width)}
           height={getNumber(logo_height)}
           alt={toSentenceCase("Brand logo of " + title)}
+          fit="contain"
           style={{
             height: getNumber(logo_height) + "px",
             width: getNumber(logo_width) + "px",
+            objectFit: "contain",
           }}
         />
         {logo_alternate && (

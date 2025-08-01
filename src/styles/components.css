@@ -222,8 +222,7 @@
   @apply flex items-center gap-2;
 
   .logo {
-    @apply !w-10;
-    @apply flex w-10 items-center gap-x-4;
+    @apply flex items-center gap-x-4;
   }
 
   &.has-hover-animation {
