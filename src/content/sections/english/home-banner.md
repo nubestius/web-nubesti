@@ -1,15 +1,15 @@
 ---
-title: Effortless analytics and real-time **insights**.
-description: Upstart makes it easy to collect, analyze, and understand your data — so you can focus on growth.
+title: Autonomous Red Team **Cybersecurity** Platform
+description: Our AI-powered cybersecurity agent leverages MITRE ATT&CK and OWASP frameworks to continuously identify, validate, and prioritize vulnerabilities with surgical precision — eliminating false positives while automatically generating patches before threats escalate.
 image: "/images/product-demo.png"
 buttons:
   - enable: true
-    label: "Get Started"
+    label: "Book a Demo"
     url: "/contact"
     rel: ""
     target: ""
   - enable: true
-    label: "Watch Video"
+    label: "How it works"
     type: "video"
     video:
       src: "/videos/saas-test-video.mp4" # video url or path eg: "/videos/test-video.mp4" or "https://example.com/test-video.mp4"
@@ -22,7 +22,7 @@ buttons:
 # Optional: uncomment if you want to override default `src/content/sections/english/customers.md` content
 customers:
   enable: true # Control the visibility of this section across all pages where it is used
-  description: "Trusted By Thousands of Companies"
+  description: "Trusted By Enterprise Security Teams"
 
   # marquee:
   #   element_width:

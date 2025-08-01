@@ -1,94 +1,191 @@
 ---
 title: "Privacy Policy"
-meta_description: This is a example description
+meta_description: "Nubesti LLC Privacy Policy - How we collect, use, and protect your personal information in compliance with US, EU, and Colombian laws."
 draft: false
 ---
 
-**Effective Date: July, 2022**
+**Effective Date: August 1, 2025**
 
-Welcome to Upstart ("we," "our," or "us"). Your privacy is important to us, and we are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website, https://www.upstart.com ("Website").
+Welcome to Nubesti LLC ("we," "our," or "us"). This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our AI-powered cybersecurity services. We are committed to protecting your privacy and ensuring compliance with applicable laws including the Delaware General Corporation Law, the European Union General Data Protection Regulation (GDPR), and Colombian data protection laws.
 
-### Information We Collect
+## 1. Information We Collect
 
-We collect two types of information from you:
+### 1.1 Personal Information
+We may collect the following categories of personal information:
 
-- **Personal Information:**
+- **Identity Data:** Name, username, title, company name
+- **Contact Data:** Email address, telephone numbers, billing address, delivery address
+- **Financial Data:** Bank account and payment card details
+- **Technical Data:** Internet protocol (IP) address, login data, browser type and version, time zone setting, browser plug-in types and versions, operating system and platform
+- **Profile Data:** Username and password, purchases or orders made by you, your interests, preferences, feedback and survey responses
+- **Usage Data:** Information about how you use our website, products and services
+- **Marketing and Communications Data:** Your preferences in receiving marketing from us and our third parties and your communication preferences
 
-  - Name
-  - Email address
-  - Billing information (e.g., credit card details)
-  - Any information you provide voluntarily through forms, surveys, or account creation
+### 1.2 Special Categories of Personal Data
+In the course of providing cybersecurity services, we may process special categories of data including data concerning security incidents, vulnerability assessments, and penetration testing results.
 
-- **Non-Personal Information:**
-  - IP address
-  - Browser type
-  - Operating system
-  - Pages visited and time spent on our site
-  - Referring website
+### 1.3 Data Collection Methods
+We collect data through:
+- Direct interactions (forms, correspondence, phone calls)
+- Automated technologies (cookies, server logs, web beacons)
+- Third parties (analytics providers, advertising networks, search information providers)
 
-### How We Use Your Information
+## 2. How We Use Your Information
 
-We use the information we collect for the following purposes:
+We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:
 
-- To provide and improve our services
-- To process transactions and send receipts
-- To send you updates, promotions, and service-related communications
-- To personalize your experience on our Website
-- To comply with legal obligations
-- To detect and prevent fraudulent activity
+- **Performance of Contract:** To provide our cybersecurity services, process payments, and manage your account
+- **Legitimate Interest:** To improve our services, conduct business analytics, and protect our business
+- **Legal Compliance:** To comply with legal obligations including those under Delaware law, GDPR, and Colombian regulations
+- **Consent:** For marketing communications and certain automated processing activities
 
-### Cookies and Tracking Technologies
+### 2.1 Specific Uses Include:
+- Providing AI-powered red team cybersecurity services
+- Processing transactions and managing billing
+- Communicating with you about our services
+- Improving our website and services through analytics
+- Ensuring network and information security
+- Complying with legal and regulatory requirements
+- Detecting and preventing fraud and security incidents
 
-We use cookies and similar tracking technologies to enhance your experience on our Website. These include:
+## 3. Legal Basis for Processing (GDPR)
 
-- **Essential Cookies:** Required for the operation of our Website.
-- **Performance Cookies:** Help us understand how you use our site.
-- **Marketing Cookies:** Track your browsing behavior for targeted advertising.
+For our European users, we process personal data on the following legal bases:
+- **Article 6(1)(a):** Consent
+- **Article 6(1)(b):** Contract performance
+- **Article 6(1)(c):** Legal obligation
+- **Article 6(1)(f):** Legitimate interests
 
-You can control cookies through your browser settings.
+For special categories of data, we rely on:
+- **Article 9(2)(a):** Explicit consent
+- **Article 9(2)(c):** Protection of vital interests
+- **Article 9(2)(f):** Legal claims
 
-### Sharing of Information
+## 4. Data Sharing and Disclosure
 
-We do not sell, rent, or trade your personal information. However, we may share your information with:
+We may share your personal information with:
 
-- **Service Providers:** Third-party companies that help us operate our Website and provide services.
-- **Legal Authorities:** When required by law or to protect our rights and property.
-- **Business Transfers:** In case of a merger, acquisition, or sale of assets.
+### 4.1 Service Providers
+Third-party vendors who provide services on our behalf, including:
+- Cloud hosting providers
+- Payment processors
+- Email service providers
+- Analytics providers
 
-### Data Security
+### 4.2 Legal Requirements
+We may disclose your information when required by:
+- Delaware state law
+- Federal law (USA)
+- European Union law
+- Colombian law
+- Court orders or legal proceedings
 
-We implement industry-standard security measures to protect your data. However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your personal information, we cannot guarantee absolute security.
+### 4.3 Business Transfers
+In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of that transaction.
 
-### Your Rights
+## 5. International Data Transfers
 
-Depending on your location, you may have the following rights regarding your personal information:
+For our global operations, we may transfer your data outside your country of residence. For EU residents, we ensure adequate protection through:
+- European Commission adequacy decisions
+- Standard Contractual Clauses (SCCs)
+- Binding Corporate Rules
+- Certification schemes
 
-- Access your data
-- Correct or update your data
-- Request deletion of your data
-- Restrict processing of your data
-- Withdraw consent for data usage
+## 6. Data Retention
 
-To exercise your rights, please contact us at privacy@upstart.com.
+We retain personal data only for as long as necessary to:
+- Fulfill the purposes outlined in this policy
+- Comply with legal obligations
+- Resolve disputes
+- Enforce our agreements
 
-### Third-Party Links
+Specific retention periods:
+- Customer account data: Duration of relationship plus 7 years
+- Financial records: 7 years (Delaware law requirement)
+- Marketing data: Until consent is withdrawn
+- Security incident data: 5 years
 
-Our Website may contain links to third-party websites. We are not responsible for the privacy practices of these websites. We encourage you to review their privacy policies before providing any personal information.
+## 7. Your Rights
 
-### Children's Privacy
+### 7.1 Rights Under GDPR (EU Residents)
+- **Right of access:** Request copies of your personal data
+- **Right to rectification:** Request correction of inaccurate data
+- **Right to erasure:** Request deletion of your data
+- **Right to restrict processing:** Limit how we use your data
+- **Right to data portability:** Receive your data in a structured format
+- **Right to object:** Object to certain types of processing
+- **Rights related to automated decision making:** Protection against solely automated decisions
 
-Our Website is not intended for individuals under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have collected such information, please contact us immediately.
+### 7.2 Rights Under Colombian Law
+- Right to know, update, and rectify personal data
+- Right to request proof of authorization for data processing
+- Right to be informed about data usage
+- Right to file complaints with authorities
+- Right to access personal data free of charge
 
-### Changes to This Privacy Policy
+### 7.3 Rights Under Delaware/US Law
+- Right to know what personal information is collected
+- Right to request deletion of personal information
+- Right to opt-out of sale of personal information
+- Right to non-discrimination for exercising privacy rights
 
-We may update this Privacy Policy from time to time. Any changes will be posted on this page with an updated "Effective Date." We encourage you to review this Privacy Policy periodically.
+To exercise your rights, contact us at legal@nubesti.com.
 
-### Contact Us
+## 8. Cookies and Tracking Technologies
 
-If you have any questions or concerns about this Privacy Policy, please contact us at:
+We use cookies and similar technologies to:
+- Ensure website functionality
+- Analyze website usage
+- Provide personalized experiences
+- Deliver targeted advertising
 
-Upstart
-Email: privacy@upstart.com
-Address: 123 Upstart Lane, Imaginary City, IC 12345, USA
+You can control cookies through your browser settings. For EU users, we obtain consent before using non-essential cookies.
 
-Thank you for trusting Upstart with your personal information!
+## 9. Data Security
+
+We implement appropriate technical and organizational measures to protect your data, including:
+- Encryption of data in transit and at rest
+- Access controls and authentication
+- Regular security assessments
+- Employee training on data protection
+- Incident response procedures
+
+## 10. Children's Privacy
+
+Our services are not intended for individuals under 16 years of age. We do not knowingly collect personal data from children under 16. If we learn we have collected such data, we will delete it promptly.
+
+## 11. Third-Party Links
+
+Our website may contain links to third-party websites. We are not responsible for the privacy practices of these websites. We encourage you to review their privacy policies.
+
+## 12. Changes to This Privacy Policy
+
+We may update this Privacy Policy periodically. We will notify you of material changes by:
+- Posting the updated policy on our website
+- Sending email notifications to registered users
+- Displaying prominent notices on our website
+
+## 13. Supervisory Authorities
+
+You have the right to lodge a complaint with supervisory authorities:
+
+- **EU:** Your local Data Protection Authority
+- **Colombia:** Superintendencia de Industria y Comercio (SIC)
+- **USA:** Federal Trade Commission (FTC) and Delaware Attorney General's Office
+
+## 14. Contact Information
+
+For any questions about this Privacy Policy or to exercise your rights, please contact us:
+
+**Nubesti LLC**  
+Address: 1111B S Governors Ave STE 23840, Dover, DE 19904, USA  
+Email: legal@nubesti.com  
+Phone: +57 320 545 1915  
+
+**Data Protection Officer (for EU matters):**  
+Email: dpo@nubesti.com  
+
+**Representative in the EU:**  
+[To be appointed as needed]
+
+This Privacy Policy demonstrates our commitment to protecting your personal information and complying with applicable data protection laws. Thank you for trusting Nubesti LLC with your personal data.

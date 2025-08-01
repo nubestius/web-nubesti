@@ -1,55 +1,55 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-subtitle: Why Upstart
-title: Take Control with <br /> **Privacy-Focused** Analytics
+subtitle: Why AI Red Team
+title: Revolutionize Security with <br /> **Autonomous Intelligence**
 layout_type: creative # creative / modern (default - creative)
 
 list:
-  - title: Put Privacy First
+  - title: Continuous Security Testing
     image: "/images/why-us/1.png"
     description_font_size: "" # sm | lg (default - sm)
     description: |
-      Unlike other platforms, Upstart doesn't track users across websites or collect any personally identifiable information.
+      AI-powered autonomous agents run 24/7 security assessments to identify vulnerabilities before attackers do, eliminating manual testing overhead.
     cta_btn:
       enable: false
       label: ""
       url: ""
       rel: ""
       target: ""
-  - title: Own Your Data
+  - title: MITRE ATT&CK Coverage
     image: "/images/why-us/2.png"
     description_font_size: "" # sm | lg (default - sm)
     description: |
-      Upstart is self-hosted, meaning your website data stays on your server. You have complete control.
+      Full coverage of MITRE ATT&CK framework tactics and techniques to simulate real-world attack scenarios with comprehensive threat modeling.
     cta_btn:
       enable: false
       label: ""
       url: ""
       rel: ""
       target: ""
-  - title: Focus on What Matters
+  - title: Auto-Remediation Patches
     # image: ""
     description_font_size: "" # sm | lg (default - sm)
     description: |
-      Upstart tracks the essential website metrics you care about - pageviews, visitor demographics, and custom events. No unnecessary data.
+      Cognitive engine automatically generates merge-ready pull requests and Infrastructure-as-Code patches that resolve findings before they escalate.
     bounced_content:
       enable: true
       bg_image: "/images/why-us/3.png"
       list:
-        - Drag me!
-        - Filtering
-        - Teams
-        - Drag me!
-        - Visitor info
-        - Drag me!
-        - Drag me!
-        - Drag me!
-        - Page views
-        - Drag me!
-        - Languages
-        - Compare
-        - Device
-        - Traffic sources
+        - Risk Assessment
+        - OWASP Top 10
+        - Vulnerability Scan
+        - Threat Detection
+        - Auto-Remediation
+        - MITRE ATT&CK
+        - Compliance Check
+        - Security Posture
+        - Patch Management
+        - Zero-Day Protection
+        - Pentesting
+        - Risk Prioritization
+        - Exploit Validation
+        - Security Intelligence
     cta_btn:
       enable: false
       label: ""

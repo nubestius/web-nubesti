@@ -9,13 +9,13 @@ contact_list:
   list:
     - icon: "/images/icons/svg/phone.svg"
       label: "Call us now"
-      value: "+1-202-555-0190"
+      value: "+57 320 545 1915"
     - icon: "/images/icons/svg/email.svg"
       label: "Email us"
-      value: "example@gmail.com"
+      value: "hi@nubesti.com"
     - icon: "/images/icons/svg/whatsapp.svg"
       label: "Chat with us"
-      value: "@example"
+      value: "@nubesti"
 
 social:
   enable: true
@@ -73,12 +73,12 @@ form:
         search: # if type is search then it will work
           placeholder: ""
         items:
-          - label: "Example 01"
-            value: "Example 01"
-          - label: "Example 02"
-            value: "Example 02"
-          - label: "Example 03"
-            value: "Example 03"
+          - label: "Support"
+            value: "Support"
+          - label: "Demo"
+            value: "Demo"
+          - label: "Other"
+            value: "Other"
     - label: ""
       placeholder: "Subject With Search"
       name: "Subject With Search" # This is crucial. Its indicate under which name you want to receive this field data
@@ -89,16 +89,10 @@ form:
         search: # if type is search then it will work
           placeholder: "Subject With Search"
         items:
-          - label: "Lowni Saiki"
-            value: "Lowni Saiki"
-          - label: "Sikow Pow"
-            value: "Sikow Pow"
-          - label: "Kenbi Shaktun"
-            value: "Kenbi Shaktun"
-          - label: "Aruyyo Kawn"
-            value: "Aruyyo Kawn"
-          - label: "Marong Lowbbi"
-            value: "Marong Lowbbi"
+          - label: "Support"
+            value: "Support"
+          - label: "Sales"
+            value: "Sales"
     - label: ""
       tag: "textarea"
       default_value: ""

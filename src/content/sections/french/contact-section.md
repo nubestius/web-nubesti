@@ -9,7 +9,7 @@ contact_list:
   list:
     - icon: "/images/icons/svg/phone.svg"
       label: "Appelez-nous maintenant"
-      value: "+1-202-555-0190"
+      value: "+57 320 545 1915"
     - icon: "/images/icons/svg/email.svg"
       label: "Envoyez-nous un e-mail"
       value: "example@gmail.com"
@@ -73,12 +73,12 @@ form:
         search: # if type is search then it will work
           placeholder: ""
         items:
-          - label: "Exemple 01"
-            value: "Exemple 01"
-          - label: "Exemple 02"
-            value: "Exemple 02"
-          - label: "Exemple 03"
-            value: "Exemple 03"
+          - label: "Support"
+            value: "Support"
+          - label: "Demo"
+            value: "Demo"
+          - label: "Other"
+            value: "Other"
     - label: ""
       placeholder: "Objet avec recherche"
       name: "Objet avec recherche" # This is crucial. Its indicate under which name you want to receive this field data
@@ -89,16 +89,11 @@ form:
         search: # if type is search then it will work
           placeholder: "Objet avec recherche"
         items:
-          - label: "Lowni Saiki"
-            value: "Lowni Saiki"
-          - label: "Sikow Pow"
-            value: "Sikow Pow"
-          - label: "Kenbi Shaktun"
-            value: "Kenbi Shaktun"
-          - label: "Aruyyo Kawn"
-            value: "Aruyyo Kawn"
-          - label: "Marong Lowbbi"
-            value: "Marong Lowbbi"
+          - label: "Support"
+            value: "Support"
+          - label: "Sales"
+            value: "Sales"
+
     - label: ""
       tag: "textarea"
       default_value: ""

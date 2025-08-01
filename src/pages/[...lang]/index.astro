@@ -15,7 +15,11 @@ export function getStaticPaths() {
   return generatePaths();
 }
 
-const homepage = await getEntryCTM("homepage", "-index", Astro.currentLocale);
+// Get the current language from the URL params
+const lang = Astro.params.lang || "en";
+console.log("INDEX.ASTRO - Astro.params:", Astro.params);
+console.log("INDEX.ASTRO - lang:", lang);
+const homepage = await getEntryCTM("homepage", "-index", lang);
 ---
 
 <Base {...homepage.data}>

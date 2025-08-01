@@ -1,6 +1,6 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
-title: Pricing That **Makes Sense**
+title: AI Red Team **Security Plans**
 
 plans:
   enable: true
@@ -12,215 +12,246 @@ plans:
       label: Yearly # Use this value exactly in all corresponding places below.
 
 list:
-  # Basic Plan
+  # Starter Plan
   - enable: true
     featured: false
     badge:
       enable: false
       label: Most Popular
-    name: Basic # Name of the pricing tier.
-    description: Nostrud exercitation ullamco laboris nisi ut aliquip ex
+    name: Starter # Name of the pricing tier.
+    description: Essential AI-powered vulnerability detection for small teams and applications
 
     price:
       # Pricing details for each plan type.
       - type: Monthly # Plan type (must match values in the 'plans' section above).
         prepend_value: $
-        value: 12
+        value: 690
         append_value:
       - type: Yearly # Plan type (must match values in the 'plans' section above).
         prepend_value: $
-        value: 24
+        value: 6,900
         append_value:
 
     features:
-      - Basic tracking of page views, events, and user properties
-      - Real-time data visualization
-      - Limited data export options **CSV**
-      - 48-hour support response time
+      - "**OWASP Top 10** automated vulnerability scanning"
+      - "**Basic MITRE ATT&CK** technique simulation"
+      - Web application security testing
+      - "**5 target applications** or endpoints"
+      - Monthly security reports
+      - Email support (24-48h response)
 
     usages:
       - type: Monthly # Plan type (must match values in the 'plans' section above).
         list:
-          - label: Data Points
-            value: 536
-          - label: Traffic
-            value: 100
+          - label: Target Apps
+            value: 5
+          - label: Scan Hours
+            value: 40
       - type: Yearly # Plan type (must match values in the 'plans' section above).
         list:
-          - label: Data Points
-            value: 1203
-          - label: Traffic
-            value: 1000
+          - label: Target Apps
+            value: 5
+          - label: Scan Hours
+            value: 480
 
     cta_btn:
       enable: true
-      label: Get Started
+      label: Start Free Trial
       url: /contact/
       rel:
       target:
 
-  # Medium Plan
+  # Professional Plan
   - enable: true
     featured: true
     badge:
       enable: true
       label: Most Popular
-    name: Starter # Name of the pricing tier.
-    description: Nostrud exercitation ullamco laboris nisi ut aliquip ex
+    name: Professional # Name of the pricing tier.
+    description: Advanced AI red teaming with comprehensive threat simulation for growing organizations
 
     price:
       # Pricing details for each plan type.
       - type: Monthly # Plan type (must match values in the 'plans' section above).
         prepend_value: $
-        value: 20
+        value: 1,500
         append_value:
       - type: Yearly # Plan type (must match values in the 'plans' section above).
         prepend_value: $
-        value: 40
+        value: 15,000
         append_value:
 
     features:
-      - In-Depth Brand Positioning Workshop
-      - Competitive Analysis Top 5 Competitors
-      - Comprehensive Market Analysis
-      - Customer Insights & Segmentation
+      - "**Full MITRE ATT&CK** framework coverage"
+      - "**Advanced OWASP** testing + custom attack vectors"
+      - Cloud infrastructure security testing
+      - "**20 target applications** or endpoints"
+      - API and microservices testing
+      - Slack/Teams integration
+      - Weekly reports + live dashboard
+      - Priority support (4-8h response)
 
     usages:
       - type: Monthly # Plan type (must match values in the 'plans' section above).
         list:
-          - label: Data Points
-            value: 754
-          - label: Traffic
-            value: 850
+          - label: Target Apps
+            value: 20
+          - label: Scan Hours
+            value: 120
       - type: Yearly # Plan type (must match values in the 'plans' section above).
         list:
-          - label: Data Points
-            value: 1467
-          - label: Traffic
-            value: 1600
+          - label: Target Apps
+            value: 20
+          - label: Scan Hours
+            value: 1440
 
     cta_btn:
       enable: true
-      label: Get Started
+      label: Start Free Trial
       url: /contact/
       rel:
       target:
 
-  # Pro Plan
+  # Enterprise Plan
   - enable: true
     featured: false
     badge:
       enable: false
       label: Most Popular
-    name: Pro # Name of the pricing tier.
-    description: Nostrud exercitation ullamco laboris nisi ut aliquip ex
+    name: Enterprise # Name of the pricing tier.
+    description: Complete AI red team solution with custom attack scenarios for large organizations
 
     price:
-      # Pricing details for each plan type.
+      # Empty price section to maintain layout spacing
       - type: Monthly # Plan type (must match values in the 'plans' section above).
-        prepend_value: $
-        value: 30
-        append_value:
+        prepend_value: "Custom Price"
+        append_value: ""
       - type: Yearly # Plan type (must match values in the 'plans' section above).
-        prepend_value: $
-        value: 60
-        append_value:
+        prepend_value: "Custom Price"
+        append_value: ""
 
     features:
-      - Comprehensive Brand Positioning Strategy
-      - Full Competitive Analysis
-      - Advanced Market Analysis
-      - In-Depth Customer Insights
+      - "**Custom attack scenarios** tailored to your infrastructure"
+      - "**Advanced persistent threat (APT)** simulations"
+      - Multi-cloud security testing (AWS, Azure, GCP)
+      - "**Unlimited targets** and applications"
+      - Compliance reporting (SOC 2, ISO 27001, PCI DSS)
+      - Custom integrations (SIEM, ticketing systems)
+      - Real-time monitoring and alerts
+      - Dedicated security engineer + 24/7 support
 
     usages:
       - type: Monthly # Plan type (must match values in the 'plans' section above).
         list:
-          - label: Data Points
-            value: 976
-          - label: Traffic
-            value: 1200
+          - label: Target Apps
+            value: Unlimited
+          - label: Scan Hours
+            value: 300
       - type: Yearly # Plan type (must match values in the 'plans' section above).
         list:
-          - label: Data Points
-            value: 2045
-          - label: Traffic
-            value: 2600
+          - label: Target Apps
+            value: Unlimited
+          - label: Scan Hours
+            value: 3600
 
     cta_btn:
       enable: true
-      label: Get Started
+      label: Contact Sales
       url: /contact/
       rel:
       target:
 
 # Pricing Comparison
 comparison:
-  - label: Features
+  - label: Attack Frameworks
     list:
-      - value: Integrations
+      - value: OWASP Top 10 Testing
         included:
-          - true # Free Plan
           - true # Starter Plan
-          - true # Pro Plan
-      - value: Shared links
+          - true # Professional Plan
+          - true # Enterprise Plan
+      - value: MITRE ATT&CK Techniques
         included:
-          - true # Free Plan
-          - true # Starter Plan
-          - true # Pro Plan
-      - value: Importing and exporting
+          - Basic (50+ techniques) # Starter Plan
+          - Full (300+ techniques) # Professional Plan
+          - Custom + APT scenarios # Enterprise Plan
+      - value: Custom Attack Vectors
         included:
-          - true # Free Plan
-          - true # Starter Plan
-          - true # Pro Plan
-      - value: Team members
-        included:
-          - false
-          - Up to 20 users
-          - Up to 50 users
-
-  - label: Reporting
-    list:
-      - value: Advanced analytics
-        included:
-          - true # Free Plan
-          - true # Starter Plan
-          - true # Pro Plan
-      - value: Basic reports
-        included:
-          - false # Free Plan
-          - true # Starter Plan
-          - true # Pro Plan
-      - value: Professional reports
-        included:
-          - false # Free Plan
           - false # Starter Plan
-          - true # Pro Plan
-      - value: Custom report builder
+          - Limited # Professional Plan
+          - Unlimited # Enterprise Plan
+      - value: Advanced Persistent Threat (APT) Simulation
         included:
           - false
           - false
           - true
 
-  - label: Support
+  - label: Infrastructure Coverage
     list:
-      - value: 24/7 online support
+      - value: Web Applications
         included:
-          - true # Free Plan
-          - false # Starter Plan
-          - false # Pro Plan
-      - value: Quarterly product workshops
+          - true # Starter Plan
+          - true # Professional Plan
+          - true # Enterprise Plan
+      - value: API & Microservices Testing
         included:
-          - false # Free Plan
           - false # Starter Plan
-          - true # Pro Plan
-      - value: Priority phone support
+          - true # Professional Plan
+          - true # Enterprise Plan
+      - value: Cloud Infrastructure (AWS/Azure/GCP)
         included:
-          - false # Free Plan
           - false # Starter Plan
-          - true # Pro Plan
-      - value: 1:1 onboarding tour
+          - Single cloud # Professional Plan
+          - Multi-cloud # Enterprise Plan
+      - value: Network Infrastructure
+        included:
+          - false
+          - Limited
+          - Full coverage
+
+  - label: Integrations & Reporting
+    list:
+      - value: Basic Security Reports
+        included:
+          - Monthly # Starter Plan
+          - Weekly # Professional Plan
+          - Real-time # Enterprise Plan
+      - value: Slack/Teams Integration
+        included:
+          - false # Starter Plan
+          - true # Professional Plan
+          - true # Enterprise Plan
+      - value: SIEM Integration
+        included:
+          - false # Starter Plan
+          - false # Professional Plan
+          - true # Enterprise Plan
+      - value: Compliance Reports (SOC 2, ISO 27001)
+        included:
+          - false
+          - Basic
+          - Full compliance
+
+  - label: Support & Services
+    list:
+      - value: Email Support
+        included:
+          - 24-48h response # Starter Plan
+          - 4-8h response # Professional Plan
+          - 24/7 priority # Enterprise Plan
+      - value: Dedicated Security Engineer
+        included:
+          - false # Starter Plan
+          - false # Professional Plan
+          - true # Enterprise Plan
+      - value: Custom Training & Workshops
+        included:
+          - false # Starter Plan
+          - Quarterly # Professional Plan
+          - Monthly # Enterprise Plan
+      - value: On-premise Deployment
         included:
           - false
           - false
-          - true
+          - Available
 ---

@@ -12,7 +12,7 @@ export function getStaticPaths() {
   return generatePaths();
 }
 
-const entry = await getEntryCTM("faq", "-index", Astro.currentLocale);
+const entry = await getEntryCTM("pages", "ai-red-team", Astro.currentLocale);
 const why_us_two = await getEntryCTM(
   "sections",
   "why-us-two",

@@ -1,7 +1,48 @@
 import parseTomlToJson from "./parseTomlToJson";
-import languagesJSON from "../../config/language.json";
 import trailingSlashChecker from "./trailingSlashChecker";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import path from "node:path";
+
+// Get the current file directory for relative path resolution
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Load languages configuration synchronously
+let languagesJSON: any = null;
+try {
+  // Try multiple possible paths
+  const possiblePaths = [
+    path.resolve(__dirname, "../../config/language.json"),
+    path.resolve("./src/config/language.json"),
+    path.resolve("src/config/language.json")
+  ];
+  
+  let languagesContent: string | null = null;
+  for (const languagesPath of possiblePaths) {
+    try {
+      languagesContent = readFileSync(languagesPath, "utf-8");
+      console.log(`Languages loaded from: ${languagesPath}`);
+      break;
+    } catch (error) {
+      console.log(`Failed to load from: ${languagesPath}`);
+    }
+  }
+  
+  if (languagesContent) {
+    languagesJSON = JSON.parse(languagesContent);
+  } else {
+    throw new Error("Could not find language.json in any expected location");
+  }
+} catch (error) {
+  console.error("Failed to load language configuration:", error);
+  // Fallback configuration
+  languagesJSON = [
+    { languageName: "En", languageCode: "en", contentDir: "english", weight: 1 },
+    { languageName: "Fr", languageCode: "fr", contentDir: "french", weight: 2 },
+    { languageName: "Es", languageCode: "es", contentDir: "spanish", weight: 3 }
+  ];
+}
 
 // Load configuration from TOML file
 const config = parseTomlToJson("./src/config/config.toml");
@@ -18,6 +59,12 @@ const { default_language, show_default_lang_in_url } =
 const translationCache: Record<string, any> = {}; // Simple in-memory cache
 export const useTranslations = async (lang: string): Promise<Function> => {
   const { default_language, disable_languages } = config.settings.multilingual;
+
+  // Validate languagesJSON is loaded properly
+  if (!languagesJSON || !Array.isArray(languagesJSON)) {
+    console.error("Languages configuration not loaded properly in useTranslations");
+    throw new Error("Languages configuration not loaded properly");
+  }
 
   // Fallback to default language if the requested language is disabled
   const resolvedLang = disable_languages?.includes(lang)
@@ -104,20 +151,21 @@ export const getSupportedLanguages = (): Array<any> => {
     return cachedLanguages;
   }
 
-  const supportedLanguages = [...languagesJSON.map((lang) => lang)];
-  let disabledLanguages = config.settings.multilingual.enable
-    ? config.settings.multilingual.disable_languages
-    : supportedLanguages
-        .map((lang) => lang.languageCode !== "en" && lang.languageCode)
-        .filter(Boolean);
+  // Validate languagesJSON is loaded properly
+  if (!languagesJSON || !Array.isArray(languagesJSON)) {
+    console.error("Languages configuration not loaded properly in getSupportedLanguages, using fallback");
+    return [
+      {
+        languageName: "En",
+        languageCode: "en",
+        contentDir: "english",
+        weight: 1
+      }
+    ];
+  }
 
-  // Filter out the disabled languages
-  cachedLanguages = disabledLanguages
-    ? supportedLanguages.filter(
-        (lang) => !disabledLanguages.includes(lang.languageCode),
-      )
-    : supportedLanguages;
-
+  // Cache the result to avoid repeated processing
+  cachedLanguages = languagesJSON.sort((a, b) => a.weight - b.weight);
   return cachedLanguages;
 };
 
@@ -134,7 +182,7 @@ export function generatePaths(): Array<{
   params: { lang: string | undefined };
 }> {
   const supportedLanguages = getSupportedLanguages();
-  const paths = supportedLanguages.map((lang) => ({
+  const paths = supportedLanguages.map((lang: any) => ({
     params: {
       lang:
         lang.languageCode === default_language && !show_default_lang_in_url
@@ -162,6 +210,13 @@ export const getLocaleUrlCTM = (
   prependValue?: string,
 ): string => {
   const language = providedLang || default_language;
+  
+  // Validate languagesJSON is loaded properly
+  if (!languagesJSON || !Array.isArray(languagesJSON)) {
+    console.error("Languages configuration not loaded properly in getLocaleUrlCTM");
+    return url; // Return original URL as fallback
+  }
+  
   const languageCodes = languagesJSON.map((language) => language.languageCode);
   const languageDirectories = new Set(
     languagesJSON.map((language) => language.contentDir),

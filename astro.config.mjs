@@ -11,7 +11,15 @@ import parseTomlToJson from "./src/lib/utils/parseTomlToJson.ts";
 import tailwindcss from "@tailwindcss/vite";
 
 const config = parseTomlToJson("./src/config/config.toml");
-let supportedLanguages = [...languagesJSON.map((lang) => lang.languageCode)];
+let supportedLanguages = [];
+
+// Safely import language configuration
+try {
+  supportedLanguages = [...languagesJSON.map((lang) => lang.languageCode)];
+} catch (error) {
+  console.error("Error loading language configuration:", error);
+  supportedLanguages = ["en"]; // Fallback to English only
+}
 
 let {
   seo: { sitemap: sitemapConfig },
@@ -31,9 +39,14 @@ disable_language = multilingualEnable
   : supportedLanguages.map((lang) => lang !== "en" && lang).filter(Boolean);
 
 // Filter out disabled languages from supportedLanguages
-const locales = disable_language
+const locales = disable_language && Array.isArray(disable_language)
   ? supportedLanguages.filter((lang) => !disable_language.includes(lang))
   : supportedLanguages;
+
+// Ensure we always have at least English as a locale
+if (!locales || locales.length === 0) {
+  locales = ["en"];
+}
 
 // https://astro.build/config
 export default defineConfig({

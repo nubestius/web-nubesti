@@ -89,12 +89,6 @@
           "name": "Blog",
           "url": "/blog/",
           "weight": 4
-        },
-        {
-          "enable": true,
-          "name": "Blog Single",
-          "url": "/blog/post-1/",
-          "weight": 5
         }
       ]
     },

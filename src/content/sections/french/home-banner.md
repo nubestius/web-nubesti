@@ -1,15 +1,15 @@
 ---
-title: Analytiques sans effort en temps et **aperçus**.
-description: Upstart facilite la collecte, l'analyse et la compréhension de vos données — pour vous permettre de vous concentrer sur la croissance.
+title: Plateforme de Cybersécurité **Red Team Autonome**
+description: Notre gardien cybersécuritaire alimenté par l'IA exploite les frameworks MITRE ATT&CK et OWASP pour identifier, valider et prioriser continuellement les vulnérabilités avec une précision chirurgicale — éliminant les faux positifs tout en générant automatiquement des correctifs avant l'escalade des menaces.
 image: "/images/product-demo.png"
 buttons:
   - enable: true
-    label: "Commencer"
+    label: "Réserver une démo"
     url: "/contact"
     rel: ""
     target: ""
   - enable: true
-    label: "Voir la vidéo"
+    label: "Voir la démo"
     type: "video"
     video:
       src: "/videos/saas-test-video.mp4"
@@ -22,7 +22,7 @@ buttons:
 # Optional: uncomment if you want to override default `src/content/sections/english/customers.md` content
 customers:
   enable: true # Control the visibility of this section across all pages where it is used
-  description: "Fait confiance par des milliers d'entreprises"
+  description: "Fait confiance par les équipes de sécurité d'entreprise"
 
   # marquee:
   #   element_width: "7rem"

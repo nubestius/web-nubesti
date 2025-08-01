@@ -1,6 +1,6 @@
 ---
 import parseTomlToJson from "./utils/parseTomlToJson";
-import languages from "@/config/language.json";
+import { getSupportedLanguages } from "./utils/languageParser.ts";
 import {
   getCollection,
   type CollectionEntry,
@@ -15,6 +15,7 @@ export const getCollectionCTM = async <C extends CollectionKey>(
   const { default_language } = config.settings.multilingual;
 
   const selectedLanguageCode = lang || default_language;
+  const languages = getSupportedLanguages();
 
   const language = languages.find(
     (l: any) => l.languageCode == selectedLanguageCode,
@@ -46,14 +47,22 @@ export const getEntryCTM = async <C extends CollectionKey>(
   subCollectionName: string,
   lang?: string, // Optional, defaults to undefined
 ): Promise<CollectionEntry<C>> => {
+  console.log("getEntryCTM called with:", { collectionName, subCollectionName, lang });
+  
   const config = parseTomlToJson("./src/config/config.toml");
   const { default_language } = config.settings.multilingual;
 
   const selectedLanguageCode = lang || default_language;
+  console.log("selectedLanguageCode:", selectedLanguageCode);
+  
+  const languages = getSupportedLanguages();
+  console.log("languages from getSupportedLanguages:", languages);
 
   const language = languages.find(
     (l: any) => l.languageCode === selectedLanguageCode,
   );
+
+  console.log("found language:", language);
 
   if (!language) {
     throw new Error(`Language '${selectedLanguageCode}' not found.`);

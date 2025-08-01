@@ -95,12 +95,6 @@
           "name": "Blog",
           "url": "/fr/blog/",
           "weight": 4
-        },
-        {
-          "enable": true,
-          "name": "Article de blog unique",
-          "url": "/fr/blog/post-1/",
-          "weight": 5
         }
       ]
     },

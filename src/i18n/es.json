@@ -1,0 +1,29 @@
+{
+  "common": {
+    "read_more": "Leer Más",
+    "category": "Categoría",
+    "published_on": "Publicado el",
+    "learn_more_about": "Aprende más sobre",
+    "email_placeholder": "Dirección de Correo",
+    "pagination_next": "Siguiente",
+    "pagination_previous": "Anterior"
+  },
+  "navigation": {
+    "button_label": "Iniciar Sesión"
+  },
+  "subscription": {
+    "label": "Suscríbete a nuestro boletín"
+  },
+  "integration": {
+    "related_integration_section_title": "Podrías estar **interesado en**",
+    "back_to_integration": "Explorar"
+  },
+  "footer": {
+    "quick_links": "Enlaces Rápidos",
+    "legal": "Legal",
+    "resources": "Recursos",
+    "description": "Nubesti es una plataforma de ciberseguridad de vanguardia que aprovecha la inteligencia artificial para ofrecer operaciones integrales de red team. Nuestra misión es revolucionar la seguridad empresarial a través de pruebas autónomas impulsadas por IA y simulación avanzada de amenazas.",
+    "copyright": "Copyright {{ year }} / Todos los Derechos Reservados por Nubesti",
+    "_comment": "Apreciamos mucho si conservas los derechos de autor del tema. ¡Gracias por apoyar a Getastrothemes!"
+  }
+}

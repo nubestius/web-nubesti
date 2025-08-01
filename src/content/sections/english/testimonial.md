@@ -1,7 +1,7 @@
 ---
 enable: true # Control the visibility of this section across all pages where it is used
 subtitle: Stories
-title: Here's What People Are Saying **About Upstart**
+title: Here's What Security Teams Are Saying **About Our AI Red Team**
 
 marquee:
   element_width: "29.25rem"
@@ -14,58 +14,58 @@ marquee:
 list:
   - enable: true
     content: |
-      The analytics tool has been a game-changer for our team. We now have real-time insights into user behavior, traffic sources, and engagement metrics, helping us optimize our website effectively.
+      The autonomous AI Red Team platform completely transformed our security posture. We now identify and remediate vulnerabilities 10x faster than traditional methods, with zero false positives disrupting our operations.
     customer:
       image: "/images/customers/avatar/1.jpg"
-      name: "James Wilson"
-      role: "CEO"
+      name: "Carlos Rodriguez"
+      role: "CISO at Tecnoayudas"
   - enable: true
     content: |
-      Your analytics platform provided us with clear and actionable data on our visitors. We've improved our conversion rates by 30% thanks to the detailed traffic and event tracking.
+      Our security team was overwhelmed with manual testing until we implemented this AI-powered solution. The MITRE ATT&CK framework integration provides comprehensive coverage we never had before.
     customer:
       image: "/images/customers/avatar/2.jpg"
-      name: "David Lee"
-      role: "VP of Operations"
+      name: "Miguel Santos"
+      role: "Head of Security at Escala"
   - enable: true
     content: |
-      The privacy-friendly analytics tool helped us track key website metrics without compromising user data. The clean interface and easy-to-read reports made data analysis effortless.
+      The continuous security testing capabilities have given us confidence in our infrastructure. We catch critical vulnerabilities before they become incidents, saving us millions in potential breach costs.
     customer:
       image: "/images/customers/avatar/3.jpg"
-      name: "Michael Thompson"
-      role: "CEO"
+      name: "Luis Martinez"
+      role: "Security Director at Hostiva"
   - enable: true
     content: |
-      With your analytics solution, we now understand our audience better than ever. The real-time dashboard and custom event tracking have helped us tailor our marketing strategies for maximum impact.
+      What impressed us most is the auto-remediation feature. The AI agent not only finds vulnerabilities but provides immediate patches, reducing our response time from weeks to hours.
     customer:
       image: "/images/customers/avatar/4.jpg"
-      name: "Sarah Jones"
-      role: "Head of Engineering"
+      name: "Antonio Garcia"
+      role: "CTO at Inspira Hosting"
   - enable: true
     content: |
-      The lightweight analytics tool gave us deep insights without slowing down our website. We've been able to identify top-performing content and refine our SEO strategy effectively.
+      The OWASP Top 10 coverage is exceptional. We've strengthened our web application security significantly, and the detailed reporting helps us demonstrate compliance to our clients.
     customer:
       image: "/images/customers/avatar/5.jpg"
-      name: "James Wilson"
-      role: "CEO"
+      name: "Roberto Silva"
+      role: "Security Lead at Tecnoayudas"
   - enable: true
     content: |
-      Before using your analytics tool, we had little visibility into our website's performance. Now, we track visitor trends, user engagement, and conversions with ease.
+      Before this platform, we struggled with inconsistent security assessments. Now we have enterprise-grade red team capabilities running 24/7, protecting our entire digital infrastructure.
     customer:
       image: "/images/customers/avatar/6.jpg"
-      name: "David Lee"
-      role: "VP of Operations"
+      name: "Sebastian Herrera"
+      role: "VP of Operations at Escala"
   - enable: true
     content: |
-      Your privacy-first analytics tool gave us the confidence to track essential business metrics without relying on invasive tracking methods. It's the perfect alternative to big analytics providers.
+      The surgical precision of vulnerability detection eliminated the noise from our security alerts. Our team now focuses on real threats instead of chasing false alarms all day.
     customer:
       image: "/images/customers/avatar/1.jpg"
-      name: "Michael Thompson"
-      role: "CEO"
+      name: "Diego Morales"
+      role: "Security Architect at Hostiva"
   - enable: true
     content: |
-      The ability to set up custom events and track key user actions has transformed the way we analyze data. We now make informed decisions based on real user behavior, not just assumptions.
+      This AI Red Team solution scaled our security capabilities without expanding our team. We're protecting more assets with fewer resources while maintaining the highest security standards.
     customer:
       image: "/images/customers/avatar/2.jpg"
-      name: "Sarah Jones"
-      role: "Head of Engineering"
+      name: "Carlos Lopez"
+      role: "Security Manager at Inspira Hosting"
 ---

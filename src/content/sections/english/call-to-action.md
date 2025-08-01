@@ -1,16 +1,17 @@
 ---
 enable: true
-title: Start Your 7-day <br /> **Free Trial**
-rating_content: 4.8 / 5 <br /> From 12000+ Customer Reviews
+title: Ready to Secure <br /> **Your Enterprise?**
+rating_content: 4.9 / 5 <br /> From Enterprise Security Teams
 
 cta_btn:
   enable: true
-  label: Get Started
+  label: Book a Demo
   url: /contact/
   rel: ""
   target: ""
 
 features:
-  - No credit card required
-  - Free 7-day trial
+  - 24/7 autonomous testing
+  - Zero false positives
+  - Auto-remediation patches
 ---
