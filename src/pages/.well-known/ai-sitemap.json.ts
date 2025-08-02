@@ -15,7 +15,7 @@ export const GET: APIRoute = ({ site }) => {
         priority: "high",
         content_type: "homepage",
         description: "Main landing page with company overview and services",
-        languages: ["en", "es", "fr"],
+        languages: ["en", "es", "fr", "pt"],
         update_frequency: "monthly"
       },
       {
@@ -23,7 +23,7 @@ export const GET: APIRoute = ({ site }) => {
         priority: "high", 
         content_type: "educational_content",
         description: "Technical cybersecurity articles and insights",
-        languages: ["en", "es", "fr"],
+        languages: ["en", "es", "fr", "pt"],
         update_frequency: "weekly",
         topics: ["AI Security", "Red Team", "Penetration Testing", "OWASP", "MITRE ATT&CK"]
       },
@@ -32,7 +32,7 @@ export const GET: APIRoute = ({ site }) => {
         priority: "high",
         content_type: "service_description", 
         description: "Detailed information about AI-powered red team services",
-        languages: ["en", "es", "fr"],
+        languages: ["en", "es", "fr", "pt"],
         update_frequency: "monthly"
       },
       {
@@ -40,7 +40,7 @@ export const GET: APIRoute = ({ site }) => {
         priority: "high",
         content_type: "qa_content",
         description: "Comprehensive FAQ about services and platform",
-        languages: ["en", "es", "fr"],
+        languages: ["en", "es", "fr", "pt"],
         update_frequency: "as_needed"
       },
       {
@@ -48,7 +48,7 @@ export const GET: APIRoute = ({ site }) => {
         priority: "medium",
         content_type: "commercial",
         description: "Service pricing and subscription plans",
-        languages: ["en", "es", "fr"],
+        languages: ["en", "es", "fr", "pt"],
         update_frequency: "quarterly"
       },
       {
@@ -56,7 +56,7 @@ export const GET: APIRoute = ({ site }) => {
         priority: "medium",
         content_type: "technical_documentation",
         description: "API integrations and technical specifications",
-        languages: ["en", "es", "fr"],
+        languages: ["en", "es", "fr", "pt"],
         update_frequency: "monthly"
       },
       {
@@ -64,7 +64,7 @@ export const GET: APIRoute = ({ site }) => {
         priority: "low",
         content_type: "updates",
         description: "Product updates and feature releases",
-        languages: ["en", "es", "fr"],
+        languages: ["en", "es", "fr", "pt"],
         update_frequency: "monthly"
       }
     ],
@@ -103,7 +103,7 @@ export const GET: APIRoute = ({ site }) => {
     
     language_support: {
       primary: "en",
-      supported: ["en", "es", "fr"],
+      supported: ["en", "es", "fr", "pt"],
       content_structure: "parallel_translations"
     },
     

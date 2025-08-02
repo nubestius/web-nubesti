@@ -1,7 +1,7 @@
 ---
 title: Plataforma de **Ciberseguridad** Red Team Autónoma
 description: Nuestro agente de ciberseguridad impulsado por IA aprovecha los marcos MITRE ATT&CK y OWASP para identificar, validar y priorizar continuamente vulnerabilidades con precisión quirúrgica — eliminando falsos positivos mientras genera automáticamente parches antes de que las amenazas escalen.
-image: "/images/product-demo.png"
+image: "/images/nubesti-ai-red-team-dashboard.png"
 buttons:
   - enable: true
     label: "Reservar Demo"

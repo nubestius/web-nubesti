@@ -2,7 +2,7 @@
   "main": [
     {
       "enable": true,
-      "name": "Inicio",
+      "name": "Início",
       "weight": 1,
       "url": ""
     },
@@ -14,11 +14,11 @@
       "cta": {
         "enable": true,
         "image": "/images/nubesti-ai-red-team-dashboard.png",
-        "title": "Experimenta las Pruebas de Red Team con IA",
-        "description": "Descubre cómo nuestros agentes autónomos de IA identifican vulnerabilidades en tus sistemas.",
+        "title": "Experimente os Testes de Red Team com IA",
+        "description": "Descubra como nossos agentes autônomos de IA identificam vulnerabilidades em seus sistemas.",
         "cta_btn": {
           "enable": true,
-          "label": "Reservar una Demo",
+          "label": "Agendar uma Demo",
           "url": "/contact/",
           "rel": "",
           "target": ""
@@ -31,29 +31,29 @@
             {
               "enable": true,
               "icon": "/images/icons/svg/security.svg",
-              "name": "Agentes Autónomos",
-              "description": "Los agentes autónomos impulsados por IA eliminan las pruebas manuales realizando evaluaciones de seguridad integrales automáticamente.",
+              "name": "Agentes Autônomos",
+              "description": "Os agentes autônomos alimentados por IA eliminam os testes manuais realizando avaliações de segurança abrangentes automaticamente.",
               "url": "/ai-red-team/"
             },
             {
               "enable": true,
               "icon": "/images/icons/svg/focus.svg",
               "name": "Cobertura MITRE ATT&CK",
-              "description": "Cobertura completa de las tácticas y técnicas del marco MITRE ATT&CK para simular escenarios de ataques del mundo real.",
+              "description": "Cobertura completa das táticas e técnicas do framework MITRE ATT&CK para simular cenários de ataques do mundo real.",
               "url": "/ai-red-team/"
             },
             {
               "enable": true,
               "icon": "/images/icons/svg/time.svg",
               "name": "Cobertura OWASP Top 10",
-              "description": "Cobertura completa de pruebas para todas las vulnerabilidades del OWASP Top 10, incluyendo ataques de inyección, autenticación rota y configuraciones de seguridad incorrectas.",
+              "description": "Cobertura completa de testes para todas as vulnerabilidades do OWASP Top 10, incluindo ataques de injeção, autenticação quebrada e configurações de segurança incorretas.",
               "url": "/ai-red-team/"
             },
             {
               "enable": true,
               "icon": "/images/icons/svg/data.svg",
-              "name": "Integración",
-              "description": "Conecta sin problemas con tus herramientas y flujos de trabajo existentes.",
+              "name": "Integração",
+              "description": "Conecte perfeitamente com suas ferramentas e fluxos de trabalho existentes.",
               "url": "/integration/"
             }
           ]
@@ -68,19 +68,19 @@
       "children": [
         {
           "enable": true,
-          "name": "Precios",
+          "name": "Preços",
           "url": "/pricing/",
           "weight": 1
         },
         {
           "enable": true,
-          "name": "Preguntas Frecuentes",
+          "name": "Perguntas Frequentes",
           "url": "/faq/",
           "weight": 2
         },
         {
           "enable": true,
-          "name": "Integración",
+          "name": "Integração",
           "url": "/integration/",
           "weight": 3
         },
@@ -94,12 +94,12 @@
     },
     {
       "enable": true,
-      "name": "Contacto",
+      "name": "Contato",
       "url": "/contact/",
       "weight": 4,
       "badge": {
         "enable": true,
-        "label": "NUEVO",
+        "label": "NOVO",
         "color": "danger",
         "_color_comment": "color expected value - primary, info, success, danger",
         "type": "dot",
@@ -110,13 +110,13 @@
   "footer_menu": [
     {
       "enable": true,
-      "name": "Términos y Condiciones",
+      "name": "Termos e Condições",
       "url": "/terms-conditions/",
       "weight": 0
     },
     {
       "enable": true,
-      "name": "Política de Privacidad",
+      "name": "Política de Privacidade",
       "url": "/privacy-policy/",
       "weight": 0
     }
@@ -124,13 +124,13 @@
   "footer_menu_quick_link": [
     {
       "enable": true,
-      "name": "Precios",
+      "name": "Preços",
       "url": "/pricing/",
       "weight": 0
     },
     {
       "enable": true,
-      "name": "Integración",
+      "name": "Integração",
       "url": "/integration/",
       "weight": 0
     },
@@ -142,7 +142,7 @@
     },
     {
       "enable": true,
-      "name": "Preguntas Frecuentes",
+      "name": "Perguntas Frequentes",
       "url": "/faq/",
       "weight": 0
     }
@@ -156,7 +156,7 @@
     },
     {
       "enable": true,
-      "name": "Integración",
+      "name": "Integração",
       "url": "/integration/",
       "weight": 0
     }
@@ -164,13 +164,13 @@
   "footer_menu_legal": [
     {
       "enable": true,
-      "name": "Términos y Condiciones",
+      "name": "Termos e Condições",
       "url": "/terms-conditions/",
       "weight": 0
     },
     {
       "enable": true,
-      "name": "Política de Privacidad",
+      "name": "Política de Privacidade",
       "url": "/privacy-policy/",
       "weight": 0
     }

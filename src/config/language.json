@@ -16,5 +16,11 @@
     "languageCode": "es",
     "contentDir": "spanish",
     "weight": 3
+  },
+  {
+    "languageName": "Pt",
+    "languageCode": "pt",
+    "contentDir": "portuguese",
+    "weight": 4
   }
 ]

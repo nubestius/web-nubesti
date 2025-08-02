@@ -1,7 +1,7 @@
 ---
 title: Autonomous Red Team **Cybersecurity** Platform
 description: Our AI-powered cybersecurity agent leverages MITRE ATT&CK and OWASP frameworks to continuously identify, validate, and prioritize vulnerabilities with surgical precision — eliminating false positives while automatically generating patches before threats escalate.
-image: "/images/product-demo.png"
+image: "/images/nubesti-ai-red-team-dashboard.png"
 buttons:
   - enable: true
     label: "Book a Demo"

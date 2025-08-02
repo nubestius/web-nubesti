@@ -17,6 +17,7 @@ Allow: /
 Allow: /en/
 Allow: /es/ 
 Allow: /fr/
+Allow: /pt/
 Allow: /pricing/
 Allow: /contact/
 Allow: /blog/
