@@ -5,9 +5,9 @@ image: "/images/nubesti-ai-red-team-dashboard.png"
 buttons:
   - enable: true
     label: "Reservar Demo"
-    url: "/contact"
+    url: "https://meetings.hubspot.com/alexis307"
     rel: ""
-    target: ""
+    target: "_blank"
   - enable: true
     label: "Cómo funciona"
     type: "video"

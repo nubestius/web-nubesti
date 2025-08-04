@@ -149,7 +149,7 @@ Testes abrangentes contra frameworks OWASP:
 Pronto para revolucionar seus testes de cibersegurança? Entre em contato com nossos especialistas em segurança para agendar uma demonstração personalizada e discutir seus requisitos específicos.
 
 **Informações de Contato**:
-- Agende uma demo: [Contato de Vendas](/contact/)
+- Agende uma demo: [Contato de Vendas](https://meetings.hubspot.com/alexis307)
 - Questões técnicas: security@nubesti.com
 - Consultas de parceria: partners@nubesti.com
 

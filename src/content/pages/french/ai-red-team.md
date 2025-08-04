@@ -369,7 +369,7 @@ Tests complets contre les frameworks OWASP :
 Prêt à révolutionner vos tests de cybersécurité ? Contactez nos experts en sécurité pour planifier une démonstration personnalisée et discuter de vos exigences spécifiques.
 
 **Informations de Contact**:
-- Planifier une démo : [Contacter les Ventes](/contact/)
+- Planifier une démo : [Contacter les Ventes](https://meetings.hubspot.com/alexis307)
 - Questions techniques : security@nubesti.com
 - Demandes de partenariat : partners@nubesti.com
 

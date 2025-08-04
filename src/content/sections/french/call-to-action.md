@@ -6,9 +6,9 @@ rating_content: 4.8 / 5 <br /> De 12000+ Avis de Clients
 cta_btn:
   enable: true
   label: Commencer
-  url: /contact/
+  url: https://meetings.hubspot.com/alexis307
   rel: ""
-  target: ""
+  target: "_blank"
 
 features:
   - Aucune carte de crédit requise

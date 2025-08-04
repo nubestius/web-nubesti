@@ -6,9 +6,9 @@ rating_content: 4.9 / 5 <br /> From Enterprise Security Teams
 cta_btn:
   enable: true
   label: Book a Demo
-  url: /contact/
+  url: https://meetings.hubspot.com/alexis307
   rel: ""
-  target: ""
+  target: "_blank"
 
 features:
   - 24/7 autonomous testing

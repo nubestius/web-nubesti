@@ -12,7 +12,7 @@ banner:
   image: "/images/product-demo.png"
   button:
     label: "Schedule Live Demo"
-    link: "/contact/"
+    link: "https://meetings.hubspot.com/alexis307"
     enable: true
 
 # Demo Video Section
@@ -91,7 +91,7 @@ cta:
   description: "Schedule a personalized demo with our security experts to see how the AI Red Team platform can protect your organization."
   button:
     label: "Book Your Demo"
-    link: "/contact/"
+    link: "https://meetings.hubspot.com/alexis307"
   secondary_button:
     label: "View Pricing"
     link: "/pricing/"

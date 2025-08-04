@@ -7,9 +7,9 @@ rating_content: 4.9 / 5 <br /> Das Equipes de Segurança Empresarial
 cta_btn:
   enable: true
   label: Agendar Demo
-  url: /contact/
+  url: https://meetings.hubspot.com/alexis307
   rel: ""
-  target: ""
+  target: "_blank"
 
 features:
   - Testes autônomos 24/7

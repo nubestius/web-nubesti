@@ -369,7 +369,7 @@ Comprehensive testing against OWASP frameworks:
 Ready to revolutionize your cybersecurity testing? Contact our security experts to schedule a personalized demonstration and discuss your specific requirements.
 
 **Contact Information**:
-- Schedule a demo: [Contact Sales](/contact/)
+- Schedule a demo: [Contact Sales](https://meetings.hubspot.com/alexis307)
 - Technical questions: security@nubesti.com
 - Partnership inquiries: partners@nubesti.com
 

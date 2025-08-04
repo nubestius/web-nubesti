@@ -19,9 +19,9 @@
         "cta_btn": {
           "enable": true,
           "label": "Réserver une démo",
-          "url": "/contact/",
+          "url": "https://meetings.hubspot.com/alexis307",
           "rel": "",
-          "target": ""
+          "target": "_blank"
         }
       },
       "menus": [
