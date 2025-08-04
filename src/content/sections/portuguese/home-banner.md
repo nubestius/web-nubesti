@@ -1,5 +1,6 @@
 ---
 title: Plataforma de **Cibersegurança** Red Team Autônoma
+draft: false
 description: Nosso agente de cibersegurança alimentado por IA aproveita os frameworks MITRE ATT&CK e OWASP para identificar, validar e priorizar continuamente vulnerabilidades com precisão cirúrgica — eliminando falsos positivos enquanto gera automaticamente patches antes que as ameaças escalem.
 image: "/images/nubesti-ai-red-team-dashboard.png"
 buttons:
