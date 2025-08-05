@@ -114,13 +114,8 @@ className =
           }
         });
         
-        // Security: Disable right-click context menu in production
-        if (window.location.hostname !== 'localhost') {
-          document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-          });
-        }
+        // Security: Right-click context menu enabled for better user experience
+        // Removed restriction to allow right-click functionality
         
         // Security: Disable text selection for sensitive content
         document.addEventListener('selectstart', function(e) {
