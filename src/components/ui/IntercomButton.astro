@@ -1,0 +1,128 @@
+---
+interface IntercomButtonProps {
+  label?: string;
+  variant?: 'primary' | 'secondary' | 'security';
+  size?: 'sm' | 'md' | 'lg';
+  position?: 'fixed' | 'relative';
+  className?: string;
+}
+
+const {
+  label = "Security Consultation",
+  variant = 'security',
+  size = 'md',
+  position = 'relative',
+  className = ""
+} = Astro.props as IntercomButtonProps;
+
+const variants = {
+  primary: 'bg-primary text-white hover:bg-primary/90',
+  secondary: 'bg-gray-100 text-gray-900 hover:bg-gray-200',
+  security: 'bg-red-600 text-white hover:bg-red-700 shadow-lg shadow-red-600/20'
+};
+
+const sizes = {
+  sm: 'px-3 py-1.5 text-sm',
+  md: 'px-4 py-2 text-base',
+  lg: 'px-6 py-3 text-lg'
+};
+
+const positionClasses = position === 'fixed' 
+  ? 'fixed bottom-6 right-6 z-50' 
+  : '';
+
+const buttonClasses = `
+  inline-flex items-center gap-2 rounded-lg font-medium transition-all duration-200
+  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500
+  ${variants[variant]}
+  ${sizes[size]}
+  ${positionClasses}
+  ${className}
+`.trim();
+---
+
+<button
+  class={buttonClasses}
+  onclick="if (window.Intercom) { window.Intercom('show'); } else { console.warn('Intercom not loaded'); }"
+  data-action="open-intercom"
+  aria-label="Open live chat for cybersecurity consultation"
+>
+  <!-- Security Shield Icon -->
+  <svg 
+    class="w-4 h-4" 
+    fill="none" 
+    stroke="currentColor" 
+    viewBox="0 0 24 24"
+    aria-hidden="true"
+  >
+    <path 
+      stroke-linecap="round" 
+      stroke-linejoin="round" 
+      stroke-width="2" 
+      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+    />
+  </svg>
+  
+  <span>{label}</span>
+  
+  <!-- Online indicator -->
+  <span 
+    class="w-2 h-2 bg-green-400 rounded-full animate-pulse" 
+    aria-label="Online now"
+    title="Our security experts are online"
+  ></span>
+</button>
+
+<style>
+  /* Enhanced accessibility and hover effects */
+  button[data-action="open-intercom"]:hover {
+    transform: translateY(-1px);
+  }
+  
+  button[data-action="open-intercom"]:active {
+    transform: translateY(0);
+  }
+  
+  /* Pulse animation for attention */
+  @keyframes securityPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+    50% {
+      box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+    }
+  }
+  
+  .security-pulse {
+    animation: securityPulse 2s infinite;
+  }
+</style>
+
+<script>
+  // Enhanced click tracking for cybersecurity context
+  document.addEventListener('DOMContentLoaded', function() {
+    const intercomButtons = document.querySelectorAll('[data-action="open-intercom"]');
+    
+    intercomButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        // Track security consultation requests
+        if (window.gtag) {
+          window.gtag('event', 'security_consultation_clicked', {
+            event_category: 'engagement',
+            event_label: 'intercom_chat',
+            page_location: window.location.href
+          });
+        }
+        
+        // Track in Intercom
+        if (window.Intercom) {
+          window.Intercom('track', 'security-chat-opened', {
+            source: 'custom_button',
+            page: window.location.pathname,
+            timestamp: new Date().toISOString()
+          });
+        }
+      });
+    });
+  });
+</script>

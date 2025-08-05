@@ -5,12 +5,18 @@ import OpenGraph from "@/components/seo/OpenGraph.astro";
 import Favicons from "@/components/seo/Favicons.astro";
 import AdvancedSchema from "@/layouts/components/seo/AdvancedSchema.astro";
 import CybersecuritySchema from "@/layouts/components/seo/CybersecuritySchema.astro";
+import FAQSchema from "@/layouts/components/seo/FAQSchema.astro";
+import TestimonialSchema from "@/layouts/components/seo/TestimonialSchema.astro";
+import PricingSchema from "@/layouts/components/seo/PricingSchema.astro";
+import VideoSchema from "@/layouts/components/seo/VideoSchema.astro";
+import ArticleSchema from "@/layouts/components/seo/ArticleSchema.astro";
 import CoreWebVitals from "@/layouts/components/seo/CoreWebVitals.astro";
 import AdvancedSEOAnalysis from "@/layouts/components/seo/AdvancedSEOAnalysis.astro";
 import GoogleAnalytics from "@/layouts/components/analytics/GoogleAnalytics.astro";
 import GoogleSearchConsole from "@/layouts/components/analytics/GoogleSearchConsole.astro";
 import GoogleTagManager from "@/layouts/components/analytics/GoogleTagManager.astro";
 import TrackingScript from "@/layouts/components/analytics/TrackingScript.astro";
+import Intercom from "@/layouts/components/analytics/Intercom.astro";
 import parseTomlToJson from "@/lib/utils/parseTomlToJson.ts";
 import theme from "@/config/theme.json";
 import JsonLD from "../widgets/JsonLD.astro";
@@ -108,6 +114,36 @@ const themeColor = theme.colors.default.theme_color.primary;
     {...Astro.props} 
   />
 
+  <!-- FAQ Schema for FAQ pages -->
+  {Astro.url.pathname.includes('/faq') && (
+    <FAQSchema {...Astro.props} />
+  )}
+
+  <!-- Testimonial Schema for pages with testimonials -->
+  {(Astro.url.pathname === '/' || Astro.url.pathname.includes('/testimonial')) && (
+    <TestimonialSchema {...Astro.props} />
+  )}
+
+  <!-- Pricing Schema for pricing pages -->
+  {Astro.url.pathname.includes('/pricing') && (
+    <PricingSchema {...Astro.props} />
+  )}
+
+  <!-- Video Schema for demo and video pages -->
+  {(Astro.url.pathname.includes('/demo') || Astro.url.pathname === '/') && (
+    <VideoSchema 
+      videoType="demo"
+      videoTitle="Nubesti AI Red Team Platform Demo"
+      videoDescription="Watch how our AI-powered red team platform autonomously identifies vulnerabilities and conducts comprehensive security testing"
+      {...Astro.props} 
+    />
+  )}
+
+  <!-- Article Schema for blog posts and technical articles -->
+  {Astro.url.pathname.includes('/blog') && (
+    <ArticleSchema {...Astro.props} />
+  )}
+
   <!-- Core Web Vitals Monitoring -->
   <CoreWebVitals />
 
@@ -122,6 +158,9 @@ const themeColor = theme.colors.default.theme_color.primary;
 
   <!-- Enhanced Event Tracking -->
   <TrackingScript />
+
+  <!-- Intercom Chat Widget -->
+  <Intercom {...Astro.props} />
 
   <!------------------
     Google Fonts

@@ -1,0 +1,274 @@
+---
+import { getCollection } from "astro:content";
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+
+const config = parseTomlToJson("./src/config/config.toml");
+const baseUrl = config.site.base_url;
+
+interface PricingSchemaProps {
+  pricingData?: any[];
+  pageTitle?: string;
+  currency?: string;
+}
+
+const { pricingData, pageTitle, currency = "USD" } = Astro.props as PricingSchemaProps;
+
+// Get pricing data from content if not provided
+let pricingPlans = pricingData;
+
+if (!pricingPlans) {
+  try {
+    // Try to get pricing data for current language
+    const currentLang = Astro.currentLocale || 'english';
+    const langFolder = currentLang === 'en' ? 'english' : currentLang;
+    
+    const pricingCollection = await getCollection('sections', (entry) => {
+      return entry.id.includes(`${langFolder}/pricing-section`);
+    });
+    
+    if (pricingCollection.length > 0) {
+      const pricingPage = pricingCollection[0];
+      pricingPlans = pricingPage.data.pricing_card || [];
+    }
+  } catch (error) {
+    console.warn('Could not load pricing data for schema:', error);
+    pricingPlans = [];
+  }
+}
+
+// Default pricing plans for schema
+const defaultPricingPlans = [
+  {
+    name: "Starter",
+    description: "Essential AI red teaming for small teams and startups",
+    price: [
+      { type: "Monthly", value: 690 },
+      { type: "Yearly", value: 6900 }
+    ],
+    features: [
+      "OWASP Top 10 automated vulnerability scanning",
+      "Basic MITRE ATT&CK technique simulation",
+      "Web application security testing",
+      "5 target applications or endpoints",
+      "Monthly security reports",
+      "Email support (24-48h response)"
+    ]
+  },
+  {
+    name: "Professional", 
+    description: "Advanced AI red teaming with comprehensive threat simulation for growing organizations",
+    badge: { label: "Most Popular" },
+    price: [
+      { type: "Monthly", value: 1500 },
+      { type: "Yearly", value: 15000 }
+    ],
+    features: [
+      "Full MITRE ATT&CK framework coverage",
+      "Advanced OWASP testing + custom attack vectors",
+      "Cloud infrastructure security testing",
+      "20 target applications or endpoints",
+      "API and microservices testing",
+      "Slack/Teams integration",
+      "Weekly reports + live dashboard",
+      "Priority support (4-8h response)"
+    ]
+  },
+  {
+    name: "Enterprise",
+    description: "Ultimate AI red team solution with unlimited testing and dedicated support",
+    price: [
+      { type: "Monthly", prepend_value: "Custom Price" },
+      { type: "Yearly", prepend_value: "Custom Price" }
+    ],
+    features: [
+      "Custom attack scenarios tailored to your infrastructure",
+      "Advanced persistent threat (APT) simulations", 
+      "Multi-cloud security testing (AWS, Azure, GCP)",
+      "Unlimited targets and applications",
+      "Compliance reporting (SOC 2, ISO 27001, PCI DSS)",
+      "Custom integrations (SIEM, ticketing systems)",
+      "Real-time monitoring and alerts",
+      "Dedicated security engineer + 24/7 support"
+    ]
+  }
+];
+
+const allPricingPlans = pricingPlans && pricingPlans.length > 0 ? pricingPlans : defaultPricingPlans;
+
+// Generate Product/Service schemas for each pricing plan
+const pricingSchemas = allPricingPlans.filter((plan: any) => plan.enable !== false).map((plan: any, index: number) => {
+  const monthlyPrice = plan.price?.find((p: any) => p.type === "Monthly");
+  const yearlyPrice = plan.price?.find((p: any) => p.type === "Yearly");
+  
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `${baseUrl}/pricing#${plan.name.toLowerCase()}`,
+    "name": `Nubesti AI Red Team - ${plan.name} Plan`,
+    "description": plan.description,
+    "brand": {
+      "@type": "Brand",
+      "name": "Nubesti"
+    },
+    "category": "Cybersecurity Software",
+    "image": `${baseUrl}/images/nubesti-ai-red-team-dashboard.png`,
+    "url": `${baseUrl}/pricing/`,
+    "offers": [
+      // Monthly offer
+      ...(monthlyPrice && monthlyPrice.value ? [{
+        "@type": "Offer",
+        "@id": `${baseUrl}/pricing#${plan.name.toLowerCase()}-monthly`,
+        "name": `${plan.name} Plan - Monthly`,
+        "price": monthlyPrice.value,
+        "priceCurrency": currency,
+        "billingIncrement": "P1M",
+        "priceType": "https://schema.org/SalePrice",
+        "availability": "https://schema.org/InStock",
+        "validFrom": new Date().toISOString().split('T')[0],
+        "priceValidUntil": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        "seller": {
+          "@type": "Organization",
+          "name": "Nubesti",
+          "url": baseUrl
+        },
+        "warranty": {
+          "@type": "WarrantyPromise",
+          "durationOfWarranty": "P30D",
+          "warrantyScope": "Service availability and support"
+        }
+      }] : []),
+      // Yearly offer
+      ...(yearlyPrice && yearlyPrice.value ? [{
+        "@type": "Offer",
+        "@id": `${baseUrl}/pricing#${plan.name.toLowerCase()}-yearly`,
+        "name": `${plan.name} Plan - Yearly`,
+        "price": yearlyPrice.value,
+        "priceCurrency": currency,
+        "billingIncrement": "P1Y",
+        "priceType": "https://schema.org/SalePrice",
+        "availability": "https://schema.org/InStock",
+        "validFrom": new Date().toISOString().split('T')[0],
+        "priceValidUntil": new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+        "seller": {
+          "@type": "Organization",
+          "name": "Nubesti",
+          "url": baseUrl
+        },
+        "warranty": {
+          "@type": "WarrantyPromise",
+          "durationOfWarranty": "P30D",
+          "warrantyScope": "Service availability and support"
+        }
+      }] : []),
+      // Custom pricing for Enterprise
+      ...(!monthlyPrice?.value && !yearlyPrice?.value ? [{
+        "@type": "Offer",
+        "@id": `${baseUrl}/pricing#${plan.name.toLowerCase()}-custom`,
+        "name": `${plan.name} Plan - Custom Pricing`,
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "Contact for pricing",
+          "priceCurrency": currency
+        },
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Nubesti",
+          "url": baseUrl
+        }
+      }] : [])
+    ],
+    "additionalProperty": plan.features?.map((feature: string, featureIndex: number) => ({
+      "@type": "PropertyValue",
+      "name": `Feature ${featureIndex + 1}`,
+      "value": feature.replace(/\*\*/g, '')
+    })) || [],
+    "serviceType": "Cybersecurity Testing",
+    "provider": {
+      "@type": "Organization",
+      "name": "Nubesti",
+      "url": baseUrl
+    },
+    "audience": {
+      "@type": "Audience",
+      "audienceType": plan.name === "Starter" ? "Small Business" : 
+                     plan.name === "Professional" ? "Medium Business" : "Enterprise"
+    }
+  };
+});
+
+// Service Catalog Schema
+const serviceCatalogSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "@id": `${baseUrl}/pricing#service-catalog`,
+  "name": "Nubesti AI Red Team Service Plans",
+  "description": "Comprehensive cybersecurity testing plans for organizations of all sizes",
+  "url": `${baseUrl}/pricing/`,
+  "numberOfItems": allPricingPlans.length,
+  "itemListElement": pricingSchemas.map((schema, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "item": {
+      "@type": "Product",
+      "@id": schema["@id"],
+      "name": schema.name,
+      "description": schema.description,
+      "offers": schema.offers
+    }
+  }))
+};
+
+// Subscription Service Schema
+const subscriptionServiceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "@id": `${baseUrl}/pricing#subscription-service`,
+  "name": "AI-Powered Cybersecurity Testing Subscription",
+  "description": "Continuous AI-powered red team operations and penetration testing with flexible subscription plans",
+  "provider": {
+    "@type": "Organization",
+    "name": "Nubesti",
+    "url": baseUrl,
+    "logo": `${baseUrl}/images/logo-nubesti.svg`
+  },
+  "serviceType": "Cybersecurity",
+  "category": "Information Security",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Global"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Cybersecurity Testing Plans",
+    "itemListElement": pricingSchemas.map(schema => ({
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": schema.name,
+        "description": schema.description
+      },
+      "price": schema.offers[0]?.price || "Contact for pricing",
+      "priceCurrency": currency
+    }))
+  },
+  "termsOfService": `${baseUrl}/terms-conditions/`,
+  "privacyPolicy": `${baseUrl}/privacy-policy/`,
+  "serviceOutput": {
+    "@type": "Thing",
+    "name": "Security Assessment Report",
+    "description": "Comprehensive cybersecurity analysis and vulnerability assessment"
+  }
+};
+---
+
+<!-- Individual Product/Service Schemas for each plan -->
+{pricingSchemas.map((schema) => (
+  <script type="application/ld+json" data-schema="pricing-plan" set:html={JSON.stringify(schema, null, 2)} />
+))}
+
+<!-- Service Catalog Schema -->
+<script type="application/ld+json" data-schema="service-catalog" set:html={JSON.stringify(serviceCatalogSchema, null, 2)} />
+
+<!-- Subscription Service Schema -->
+<script type="application/ld+json" data-schema="subscription-service" set:html={JSON.stringify(subscriptionServiceSchema, null, 2)} />

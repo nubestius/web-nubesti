@@ -1,0 +1,266 @@
+---
+import parseTomlToJson from "@/lib/utils/parseTomlToJson";
+
+const config = parseTomlToJson("./src/config/config.toml");
+const baseUrl = config.site.base_url;
+
+interface VideoSchemaProps {
+  videoUrl?: string;
+  videoTitle?: string;
+  videoDescription?: string;
+  videoPoster?: string;
+  videoDuration?: string;
+  videoType?: 'demo' | 'tutorial' | 'testimonial' | 'presentation';
+  embedUrl?: string;
+  uploadDate?: string;
+}
+
+const {
+  videoUrl,
+  videoTitle,
+  videoDescription,
+  videoPoster,
+  videoDuration = "PT5M",
+  videoType = 'demo',
+  embedUrl,
+  uploadDate
+} = Astro.props as VideoSchemaProps;
+
+// Default video information for demos
+const defaultVideoInfo = {
+  title: "Nubesti AI Red Team Platform Demo",
+  description: "Watch how our AI-powered red team platform autonomously identifies vulnerabilities, simulates real-world attacks, and provides comprehensive security testing using the MITRE ATT&CK framework.",
+  url: "/videos/saas-test-video.mp4",
+  poster: "/images/video-thumbnail.jpg",
+  duration: "PT8M30S",
+  uploadDate: new Date().toISOString().split('T')[0]
+};
+
+const finalVideoUrl = videoUrl || defaultVideoInfo.url;
+const finalVideoTitle = videoTitle || defaultVideoInfo.title;
+const finalVideoDescription = videoDescription || defaultVideoInfo.description;
+const finalVideoPoster = videoPoster || defaultVideoInfo.poster;
+const finalUploadDate = uploadDate || defaultVideoInfo.uploadDate;
+
+// Video Object Schema
+const videoObjectSchema = {
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "@id": `${new URL(Astro.url.pathname, Astro.site).href}#video`,
+  "name": finalVideoTitle,
+  "description": finalVideoDescription,
+  "thumbnailUrl": `${baseUrl}${finalVideoPoster}`,
+  "uploadDate": finalUploadDate,
+  "duration": videoDuration,
+  "contentUrl": finalVideoUrl.startsWith('http') ? finalVideoUrl : `${baseUrl}${finalVideoUrl}`,
+  "embedUrl": embedUrl || `${baseUrl}/demo/`,
+  "publisher": {
+    "@type": "Organization",
+    "name": "Nubesti",
+    "url": baseUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${baseUrl}/images/logo-nubesti.svg`,
+      "width": 300,
+      "height": 100
+    }
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "Nubesti",
+    "url": baseUrl
+  },
+  "inLanguage": Astro.currentLocale || "en",
+  "isFamilyFriendly": true,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "genre": ["Technology", "Cybersecurity", "Software Demo"],
+  "keywords": [
+    "AI Red Team",
+    "Penetration Testing",
+    "Cybersecurity Demo",
+    "MITRE ATT&CK",
+    "Vulnerability Assessment",
+    "Security Testing",
+    "Autonomous Testing",
+    "AI-Powered Security"
+  ],
+  "about": {
+    "@type": "SoftwareApplication",
+    "name": "Nubesti AI Red Team Platform",
+    "applicationCategory": "SecurityApplication",
+    "operatingSystem": "Web-based"
+  },
+  "teaches": [
+    "AI-powered penetration testing",
+    "Autonomous red team operations", 
+    "MITRE ATT&CK framework implementation",
+    "Continuous security monitoring",
+    "Vulnerability assessment automation"
+  ]
+};
+
+// Video Tutorial Schema (for educational content)
+const videoTutorialSchema = videoType === 'tutorial' ? {
+  "@context": "https://schema.org",
+  "@type": "LearningResource",
+  "@id": `${new URL(Astro.url.pathname, Astro.site).href}#tutorial`,
+  "name": finalVideoTitle,
+  "description": finalVideoDescription,
+  "learningResourceType": "Video Tutorial",
+  "educationalLevel": "Professional",
+  "audience": {
+    "@type": "EducationalAudience",
+    "audienceType": ["IT Professionals", "Security Engineers", "CISOs"]
+  },
+  "teaches": [
+    "Implementation of AI-powered security testing",
+    "MITRE ATT&CK framework utilization",
+    "Automated vulnerability assessment",
+    "Cybersecurity best practices"
+  ],
+  "timeRequired": videoDuration,
+  "video": {
+    "@type": "VideoObject",
+    "@id": videoObjectSchema["@id"]
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Nubesti",
+    "url": baseUrl
+  },
+  "inLanguage": Astro.currentLocale || "en",
+  "isAccessibleForFree": true
+} : null;
+
+// Product Demo Schema (for demo videos)
+const productDemoSchema = videoType === 'demo' ? {
+  "@context": "https://schema.org", 
+  "@type": "Product",
+  "@id": `${baseUrl}#cybersecurity-platform`,
+  "name": "Nubesti AI Red Team Platform",
+  "description": "AI-powered autonomous red team and penetration testing platform",
+  "brand": {
+    "@type": "Brand",
+    "name": "Nubesti"
+  },
+  "category": "Cybersecurity Software",
+  "image": `${baseUrl}${finalVideoPoster}`,
+  "video": {
+    "@type": "VideoObject",
+    "@id": videoObjectSchema["@id"]
+  },
+  "hasProductReturnPolicy": {
+    "@type": "ProductReturnPolicy",
+    "productReturnDays": 30,
+    "productReturnLink": `${baseUrl}/contact/`
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "690",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "Organization",
+      "name": "Nubesti"
+    }
+  }
+} : null;
+
+// How-To Video Schema (for instructional content)
+const howToVideoSchema = videoType === 'tutorial' ? {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "@id": `${new URL(Astro.url.pathname, Astro.site).href}#howto-video`,
+  "name": finalVideoTitle.replace("Demo", "How to Use"),
+  "description": `Learn ${finalVideoDescription.toLowerCase()}`,
+  "image": `${baseUrl}${finalVideoPoster}`,
+  "video": {
+    "@type": "VideoObject",
+    "@id": videoObjectSchema["@id"]
+  },
+  "totalTime": videoDuration,
+  "step": [
+    {
+      "@type": "HowToStep",
+      "name": "Platform Setup",
+      "text": "Learn how to configure your Nubesti account and connect target environments",
+      "image": `${baseUrl}${finalVideoPoster}`
+    },
+    {
+      "@type": "HowToStep", 
+      "name": "AI Agent Configuration",
+      "text": "Discover how to deploy and configure autonomous AI agents for security testing",
+      "image": `${baseUrl}${finalVideoPoster}`
+    },
+    {
+      "@type": "HowToStep",
+      "name": "Results Analysis", 
+      "text": "Understand how to interpret security reports and implement remediation",
+      "image": `${baseUrl}${finalVideoPoster}`
+    }
+  ],
+  "tool": [
+    {
+      "@type": "HowToTool",
+      "name": "Nubesti AI Red Team Platform"
+    },
+    {
+      "@type": "HowToTool",
+      "name": "MITRE ATT&CK Framework"
+    }
+  ]
+} : null;
+
+// Creative Work Schema for video content
+const creativeWorkSchema = {
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": `${new URL(Astro.url.pathname, Astro.site).href}#creative-work`,
+  "name": finalVideoTitle,
+  "description": finalVideoDescription,
+  "creator": {
+    "@type": "Organization",
+    "name": "Nubesti"
+  },
+  "dateCreated": finalUploadDate,
+  "datePublished": finalUploadDate,
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "copyrightHolder": {
+    "@type": "Organization",
+    "name": "Nubesti"
+  },
+  "genre": "Educational Technology",
+  "keywords": videoObjectSchema.keywords,
+  "mainEntity": {
+    "@type": "VideoObject",
+    "@id": videoObjectSchema["@id"]
+  }
+};
+
+const schemas: any[] = [videoObjectSchema, creativeWorkSchema];
+
+if (videoTutorialSchema) schemas.push(videoTutorialSchema);
+if (productDemoSchema) schemas.push(productDemoSchema);
+if (howToVideoSchema) schemas.push(howToVideoSchema);
+---
+
+<!-- Video Object Schema -->
+<script type="application/ld+json" data-schema="video-object" set:html={JSON.stringify(videoObjectSchema, null, 2)} />
+
+<!-- Creative Work Schema -->
+<script type="application/ld+json" data-schema="creative-work" set:html={JSON.stringify(creativeWorkSchema, null, 2)} />
+
+<!-- Tutorial Schema (if applicable) -->
+{videoTutorialSchema && (
+  <script type="application/ld+json" data-schema="video-tutorial" set:html={JSON.stringify(videoTutorialSchema, null, 2)} />
+)}
+
+<!-- Product Demo Schema (if applicable) -->
+{productDemoSchema && (
+  <script type="application/ld+json" data-schema="product-demo" set:html={JSON.stringify(productDemoSchema, null, 2)} />
+)}
+
+<!-- How-To Video Schema (if applicable) -->
+{howToVideoSchema && (
+  <script type="application/ld+json" data-schema="howto-video" set:html={JSON.stringify(howToVideoSchema, null, 2)} />
+)}
