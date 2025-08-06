@@ -15,7 +15,7 @@ marquee:
 list:
   - enable: true
     content: |
-      A plataforma autônoma de Red Team de IA transformou completamente nossa postura de segurança. Agora identificamos e remediamos vulnerabilidades 10x mais rápido que métodos tradicionais, com zero falsos positivos interrompendo nossas operações.
+      A plataforma autônoma de Red Team de IA transformou completamente nossa postura de segurança. Agora identificamos e remediamos vulnerabilidades 10x mais rápido que métodos tradicionais, com mínimos falsos positivos interrompendo nossas operações.
     customer:
       image: "/images/customers/avatar/1.jpg"
       name: "Carlos Rodriguez"

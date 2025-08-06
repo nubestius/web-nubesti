@@ -12,6 +12,6 @@ cta_btn:
 
 features:
   - 24/7 autonomous testing
-  - Zero false positives
+  - Minimal false positives
   - Auto-remediation patches
 ---

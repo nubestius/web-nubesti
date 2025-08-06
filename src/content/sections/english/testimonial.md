@@ -14,7 +14,7 @@ marquee:
 list:
   - enable: true
     content: |
-      The autonomous AI Red Team platform completely transformed our security posture. We now identify and remediate vulnerabilities 10x faster than traditional methods, with zero false positives disrupting our operations.
+      The autonomous AI Red Team platform completely transformed our security posture. We now identify and remediate vulnerabilities 10x faster than traditional methods, with minimal false positives disrupting our operations.
     customer:
       image: "/images/customers/avatar/1.jpg"
       name: "Carlos Rodriguez"

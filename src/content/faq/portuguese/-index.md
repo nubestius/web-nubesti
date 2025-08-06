@@ -18,7 +18,7 @@ list:
           - **Testes Autônomos**: Varredura contínua de vulnerabilidades sem intervenção humana
           - **Cobertura MITRE ATT&CK**: Simulação abrangente de ataques baseada em técnicas do mundo real
           - **OWASP Top 10**: Cobertura completa dos riscos mais críticos de aplicações web
-          - **Zero Falsos Positivos**: Validação alimentada por IA garante que apenas vulnerabilidades reais sejam reportadas
+          - **Redução Avançada de Falsos Positivos**: Validação alimentada por IA minimiza significativamente alertas incorretos
       - active: false
         title: "Como o Red Team IA difere dos testes de penetração tradicionais?"
         content: |
@@ -42,7 +42,7 @@ list:
       - active: false
         title: "Quão precisa é a detecção de vulnerabilidades?"
         content: |
-          Nossa plataforma alimentada por IA alcança mais de 99% de precisão com zero falsos positivos através de técnicas avançadas de aprendizado de máquina e validação:
+          Nossa plataforma alimentada por IA alcança mais de 99% de precisão com redução avançada de falsos positivos através de técnicas sofisticadas de aprendizado de máquina e validação:
 
           - **Validação Multi-camada**: Cada descoberta é verificada através de múltiplos métodos de detecção
           - **Análise Contextual**: A IA compreende o contexto empresarial e o impacto das vulnerabilidades

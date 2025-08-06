@@ -18,7 +18,7 @@ list:
           - **Autonomous Testing**: Continuous vulnerability scanning without human intervention
           - **MITRE ATT&CK Coverage**: Comprehensive attack simulation based on real-world techniques
           - **OWASP Top 10**: Complete coverage of the most critical web application risks
-          - **Zero False Positives**: AI-powered validation ensures only real vulnerabilities are reported
+          - **Advanced False Positive Reduction**: AI-powered validation significantly minimizes incorrect alerts
       - active: false
         title: "How does the AI Red Team differ from traditional penetration testing?"
         content: |
@@ -42,7 +42,7 @@ list:
       - active: false
         title: "How accurate is the vulnerability detection?"
         content: |
-          Our AI-powered platform achieves over 99% accuracy with zero false positives through advanced machine learning and validation techniques:
+          Our AI-powered platform achieves over 99% accuracy with advanced false positive reduction through sophisticated machine learning and validation techniques:
 
           - **Multi-layered Validation**: Each finding is verified through multiple detection methods
           - **Contextual Analysis**: AI understands the business context and impact of vulnerabilities

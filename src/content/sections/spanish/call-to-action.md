@@ -12,6 +12,6 @@ cta_btn:
 
 features:
   - Pruebas autónomas 24/7
-  - Cero falsos positivos
+  - Mínimos falsos positivos
   - Parches de auto-remediación
 ---
