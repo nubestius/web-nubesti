@@ -31,7 +31,7 @@ const isSupademo = provider === 'supademo' && src?.startsWith('supademo:');
       class="hs-overlay pointer-events-none fixed start-0 top-0 z-[60] hidden size-full overflow-x-hidden overflow-y-auto"
       role="dialog"
       tabindex="-1">
-      <div class="hs-overlay-animation-target hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 flex min-h-[calc(100%-3.5rem)] items-center opacity-0 transition-[margin,opacity] ease-out sm:mx-auto sm:w-full sm:max-w-4xl">
+  <div class="hs-overlay-animation-target hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 flex min-h-[calc(100%-3.5rem)] items-center opacity-0 transition-[margin,opacity] ease-out sm:mx-auto sm:w-full sm:max-w-6xl px-4">
         <div class="has-video-player pointer-events-auto container flex flex-col">
           <button
             type="button"
@@ -56,8 +56,8 @@ const isSupademo = provider === 'supademo' && src?.startsWith('supademo:');
               <source src={src} type={type} />
             </video>
           ) : isSupademo ? (
-            <div class="relative w-full" style="padding:40px 0; max-height:80vh;">
-              <div style="position:relative; box-sizing:content-box; max-height:80vh; max-height:80svh; width:100%; aspect-ratio:2;">
+            <div class="relative w-full" style="padding:20px 0; max-height:85vh;">
+              <div style="position:relative; box-sizing:content-box; max-height:85vh; max-height:85svh; width:100%; aspect-ratio:16/9;">
                 <iframe
                   src={`https://app.supademo.com/embed/${src.replace('supademo:','')}?embed_v=2&utm_source=embed`}
                   loading="lazy"
