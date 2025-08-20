@@ -1,7 +1,7 @@
 ---
 title: "AI-Powered Cybersecurity Agent"
 description: Our AI-powered cybersecurity agent leverages MITRE ATT&CK and OWASP frameworks to continuously identify, validate, and prioritize vulnerabilities with surgical precision — significantly reducing false positives while automatically generating patches before threats escalate.
-image: "/images/nubesti-ai-red-team-dashboard.webp"
+image: "/images/nubesti-ai-red-team-dashboard.png"
 buttons:
   - enable: true
     label: "Book a Demo"

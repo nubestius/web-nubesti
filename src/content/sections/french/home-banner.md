@@ -1,7 +1,7 @@
 ---
 title: Plateforme de Cybersécurité **Red Team Autonome**
 description: Notre gardien cybersécuritaire alimenté par l'IA exploite les frameworks MITRE ATT&CK et OWASP pour identifier, valider et prioriser continuellement les vulnérabilités avec une précision chirurgicale — éliminant les faux positifs tout en générant automatiquement des correctifs avant l'escalade des menaces.
-image: "/images/nubesti-ai-red-team-dashboard.webp"
+image: "/images/nubesti-ai-red-team-dashboard.png"
 buttons:
   - enable: true
     label: "Réserver une démo"

@@ -13,7 +13,7 @@
       "hasMegaMenu": true,
       "cta": {
         "enable": true,
-  "image": "/images/nubesti-ai-red-team-dashboard.webp",
+        "image": "/images/nubesti-ai-red-team-dashboard.png",
         "title": "Experimenta las Pruebas de Red Team con IA",
         "description": "Descubre cómo nuestros agentes autónomos de IA identifican vulnerabilidades en tus sistemas.",
         "cta_btn": {
