@@ -12,12 +12,10 @@ buttons:
     label: "How it works"
     type: "video"
     video:
-      src: "/videos/saas-test-video.mp4" # video url or path eg: "/videos/test-video.mp4" or "https://example.com/test-video.mp4"
-      type: mp3 # video type eg: mp4, webm etc
-      provider: html5 # "youtube" | "vimeo" | "html5" (default is "youtube")
-      poster: # Optional: URL or image path for video thumbnail
-      autoplay: true # Optional: true to autoplay, false to start manually (default is false)
-      id: home-banner-video # required if same video is used on multiple time on same page
+      src: "supademo:cmejoymuu0e7p5gz32dcatf9l" # custom marker for Supademo
+      provider: supademo # custom provider handled in VideoModal
+      autoplay: false
+      id: home-banner-video
 
 # Optional: uncomment if you want to override default `src/content/sections/english/customers.md` content
 customers:

@@ -13,11 +13,9 @@ buttons:
     label: "Como funciona"
     type: "video"
     video:
-      src: "/videos/saas-test-video.mp4"
-      type: mp3
-      provider: html5
-      poster:
-      autoplay: true
+      src: "supademo:cmejoymuu0e7p5gz32dcatf9l"
+      provider: supademo
+      autoplay: false
       id: home-banner-video
 
 customers:
