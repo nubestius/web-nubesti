@@ -14,3 +14,9 @@
   for = "/images/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/how-it-works"
+  to = "/demo"
+  status = 301
+  force = true

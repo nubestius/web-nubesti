@@ -42,5 +42,11 @@
       "destination": "/sitemap-index.xml",
       "permanent": true
     }
+    ,
+    {
+      "source": "/how-it-works",
+      "destination": "/demo",
+      "permanent": true
+    }
   ]
 }
