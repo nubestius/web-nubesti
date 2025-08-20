@@ -101,6 +101,21 @@ cta:
 
 Experimente o futuro da cibersegurança com nossa demonstração completa da plataforma. Veja como agentes de IA autônomos revolucionam testes de segurança, gestão de vulnerabilidades e resposta a ameaças.
 
+<div class="demo-embed supademo-container">
+  <div style="position: relative; box-sizing: content-box; max-height: 80vh; max-height: 80svh; width: 100%; aspect-ratio: 2; padding: 40px 0;">
+    <iframe
+      src="https://app.supademo.com/embed/cmejoymuu0e7p5gz32dcatf9l?embed_v=2&utm_source=embed"
+      loading="lazy"
+      title="Nubesti Demo"
+      allow="clipboard-write; fullscreen"
+      frameborder="0"
+      allowfullscreen
+      style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+    ></iframe>
+  </div>
+</div>
+
+
 ## O Que Torna Nossa Plataforma Única?
 
 Nossa plataforma AI Red Team representa um avanço na automação de cibersegurança, combinando inteligência artificial avançada com metodologias de segurança comprovadas para entregar proteção sem precedentes para seus ativos digitais.
